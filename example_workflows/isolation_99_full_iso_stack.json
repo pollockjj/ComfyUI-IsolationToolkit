@@ -1,0 +1,367 @@
+{
+  "6": {
+    "inputs": {
+      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "clip": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
+      "clip": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "38": {
+    "inputs": {
+      "clip_name": "t5xxl_fp16.safetensors",
+      "type": "ltxv",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "41": {
+    "inputs": {
+      "filename_prefix": "full_iso_stack",
+      "fps": 24,
+      "lossless": false,
+      "quality": 90,
+      "method": "default",
+      "images": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "SaveAnimatedWEBP",
+    "_meta": {
+      "title": "SaveAnimatedWEBP"
+    }
+  },
+  "44": {
+    "inputs": {
+      "ckpt_name": "ltx-video-2b-v0.9.5.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "73": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "96": {
+    "inputs": {
+      "frame_rate": 25,
+      "positive": [
+        "97",
+        0
+      ],
+      "negative": [
+        "97",
+        1
+      ]
+    },
+    "class_type": "LTXVConditioning_ISO",
+    "_meta": {
+      "title": "LTXVConditioning_ISO"
+    }
+  },
+  "97": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "length": 33,
+      "batch_size": 1,
+      "strength": 1,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "44",
+        2
+      ],
+      "image": [
+        "105",
+        0
+      ]
+    },
+    "class_type": "LTXVImgToVideo_ISO",
+    "_meta": {
+      "title": "LTXVImgToVideo_ISO"
+    }
+  },
+  "98": {
+    "inputs": {
+      "steps": 20,
+      "max_shift": 2.05,
+      "base_shift": 0.95,
+      "stretch": true,
+      "terminal": 0.1,
+      "latent": [
+        "97",
+        2
+      ]
+    },
+    "class_type": "LTXVScheduler_ISO",
+    "_meta": {
+      "title": "LTXVScheduler_ISO"
+    }
+  },
+  "99": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect_ISO",
+    "_meta": {
+      "title": "KSamplerSelect_ISO"
+    }
+  },
+  "101": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": 5770521,
+      "cfg": 3,
+      "model": [
+        "44",
+        0
+      ],
+      "positive": [
+        "96",
+        0
+      ],
+      "negative": [
+        "96",
+        1
+      ],
+      "sampler": [
+        "99",
+        0
+      ],
+      "sigmas": [
+        "98",
+        0
+      ],
+      "latent_image": [
+        "97",
+        2
+      ]
+    },
+    "class_type": "SamplerCustom_ISO",
+    "_meta": {
+      "title": "SamplerCustom_ISO"
+    }
+  },
+  "103": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "104": {
+    "inputs": {
+      "seed": 5770521,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "103",
+        0
+      ],
+      "positive": [
+        "115",
+        0
+      ],
+      "negative": [
+        "107",
+        0
+      ],
+      "latent_image": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "105": {
+    "inputs": {
+      "samples": [
+        "104",
+        0
+      ],
+      "vae": [
+        "103",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "107": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "103",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "108": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "115": {
+    "inputs": {
+      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "clip": [
+        "103",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode_ISO",
+    "_meta": {
+      "title": "CLIPTextEncode_ISO"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples": [
+        "101",
+        0
+      ],
+      "vae": [
+        "44",
+        2
+      ]
+    },
+    "class_type": "VAEDecode_ISO",
+    "_meta": {
+      "title": "VAEDecode_ISO"
+    }
+  },
+  "117": {
+    "inputs": {
+      "model": "Florence-2-large-PromptGen-v2.0",
+      "precision": "fp16",
+      "attention": "sdpa",
+      "convert_to_safetensors": false
+    },
+    "class_type": "Florence2ModelLoader",
+    "_meta": {
+      "title": "Florence2ModelLoader"
+    }
+  },
+  "118": {
+    "inputs": {
+      "text_input": "",
+      "task": "prompt_gen_analyze",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 5770521,
+      "image": [
+        "120",
+        0
+      ],
+      "florence2_model": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "119": {
+    "inputs": {
+      "filename_prefix": "debug_full_iso_stack",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "118",
+        2
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "120": {
+    "inputs": {
+      "indexes": "32",
+      "images": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "GetImagesFromBatchIndexed",
+    "_meta": {
+      "title": "Get Images From Batch Indexed"
+    }
+  },
+  "121": {
+    "inputs": {
+      "filename_prefix": "debug_full_iso_stack",
+      "images": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
