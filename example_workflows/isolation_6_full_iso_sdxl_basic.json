@@ -1,0 +1,107 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple_ISO",
+    "_meta": {
+      "title": "CheckpointLoaderSimple_ISO"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "cinematic wide shot of a futuristic city at dusk, ultra detailed, volumetric lighting",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode_ISO",
+    "_meta": {
+      "title": "CLIPTextEncode_ISO (Positive)"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "text, watermark, low quality, blurry",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode_ISO",
+    "_meta": {
+      "title": "CLIPTextEncode_ISO (Negative)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage_ISO",
+    "_meta": {
+      "title": "EmptyLatentImage_ISO"
+    }
+  },
+  "5": {
+    "inputs": {
+      "seed": 5770521,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "KSampler_ISO",
+    "_meta": {
+      "title": "KSampler_ISO"
+    }
+  },
+  "6": {
+    "inputs": {
+      "samples": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode_ISO",
+    "_meta": {
+      "title": "VAEDecode_ISO"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "isolation_full_iso_sdxl_basic",
+      "images": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "SaveImage"
+    }
+  }
+}
