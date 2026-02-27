@@ -1,0 +1,166 @@
+{
+  "103": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "104": {
+    "inputs": {
+      "seed": 5770521,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "103",
+        0
+      ],
+      "positive": [
+        "114",
+        0
+      ],
+      "negative": [
+        "107",
+        0
+      ],
+      "latent_image": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "105": {
+    "inputs": {
+      "samples": [
+        "104",
+        0
+      ],
+      "vae": [
+        "103",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "107": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "103",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "108": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "114": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "crop_w": 0,
+      "crop_h": 0,
+      "target_width": 1024,
+      "target_height": 1024,
+      "text_g": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "text_l": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "clip": [
+        "103",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncodeSDXL_ISO",
+    "_meta": {
+      "title": "CLIPTextEncodeSDXL_ISO"
+    }
+  },
+  "115": {
+    "inputs": {
+      "filename_prefix": "debug_stateless_mcp",
+      "images": [
+        "105",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "116": {
+    "inputs": {
+      "model": "Florence-2-large-PromptGen-v2.0",
+      "precision": "fp16",
+      "attention": "sdpa",
+      "convert_to_safetensors": false
+    },
+    "class_type": "Florence2ModelLoader",
+    "_meta": {
+      "title": "Florence2ModelLoader"
+    }
+  },
+  "117": {
+    "inputs": {
+      "text_input": "",
+      "task": "prompt_gen_analyze",
+      "fill_mask": true,
+      "keep_model_loaded": false,
+      "max_new_tokens": 1024,
+      "num_beams": 3,
+      "do_sample": true,
+      "output_mask_select": "",
+      "seed": 5770521,
+      "image": [
+        "105",
+        0
+      ],
+      "florence2_model": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "Florence2Run",
+    "_meta": {
+      "title": "Florence2Run"
+    }
+  },
+  "118": {
+    "inputs": {
+      "filename_prefix": "debug_stateless_mcp",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "117",
+        2
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  }
+}

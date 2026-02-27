@@ -1,0 +1,160 @@
+{
+  "108": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "115": {
+    "inputs": {
+      "filename_prefix": "quick_2_dual_isolation_ZIT",
+      "images": [
+        "131",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "121": {
+    "inputs": {
+      "text": "ugly, stupid, wrong",
+      "clip": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "108",
+        0
+      ],
+      "vae": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "VAEDecode_ISO",
+    "_meta": {
+      "title": "VAEDecode_ISO"
+    }
+  },
+  "125": {
+    "inputs": {
+      "unet_name": "z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "126": {
+    "inputs": {
+      "vae_name": "UltraFluxVAE.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "127": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "130": {
+    "inputs": {
+      "samples": [
+        "108",
+        0
+      ],
+      "vae": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "VAEDecode_ISO2",
+    "_meta": {
+      "title": "VAEDecode_ISO2"
+    }
+  },
+  "131": {
+    "inputs": {
+      "samples": [
+        "133",
+        0
+      ],
+      "vae": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "132": {
+    "inputs": {
+      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "clip": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "133": {
+    "inputs": {
+      "seed": 0,
+      "steps": 1,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "125",
+        0
+      ],
+      "positive": [
+        "132",
+        0
+      ],
+      "negative": [
+        "121",
+        0
+      ],
+      "latent_image": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "KSampler_ISO2",
+    "_meta": {
+      "title": "KSampler_ISO2"
+    }
+  }
+}

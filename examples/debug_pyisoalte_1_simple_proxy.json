@@ -1,0 +1,54 @@
+{
+  "116": {
+    "inputs": {
+      "string_a": [
+        "119",
+        0
+      ],
+      "string_b": "an isolated node across the proxy barrier ",
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate_ISO",
+    "_meta": {
+      "title": "Concatenate_ISO"
+    }
+  },
+  "117": {
+    "inputs": {
+      "filename_prefix": "debug_simple_proxy",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "119": {
+    "inputs": {
+      "value": "This is a non-isolated node passing text to "
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "String"
+    }
+  },
+  "120": {
+    "inputs": {
+      "string_a": [
+        "116",
+        0
+      ],
+      "string_b": "back to a non-isolated node, nice job!",
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  }
+}

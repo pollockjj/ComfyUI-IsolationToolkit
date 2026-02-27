@@ -1,0 +1,139 @@
+{
+  "103": {
+    "inputs": {
+      "ckpt_name": "sd1.5-real-dream-16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "108": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "115": {
+    "inputs": {
+      "filename_prefix": "quick_0_dual_isolation_SD15",
+      "images": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples1": [
+        "108",
+        0
+      ],
+      "samples2": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "LatentAdd_ISO2",
+    "_meta": {
+      "title": "LatentAdd_ISO2"
+    }
+  },
+  "120": {
+    "inputs": {
+      "seed": 5770521,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "103",
+        0
+      ],
+      "positive": [
+        "123",
+        0
+      ],
+      "negative": [
+        "133",
+        1
+      ],
+      "latent_image": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "KSampler_ISO2",
+    "_meta": {
+      "title": "KSampler_ISO2"
+    }
+  },
+  "121": {
+    "inputs": {
+      "text": "ugly, stupid, wrong",
+      "clip": [
+        "103",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "116",
+        0
+      ],
+      "vae": [
+        "103",
+        2
+      ]
+    },
+    "class_type": "VAEDecode_ISO",
+    "_meta": {
+      "title": "VAEDecode_ISO"
+    }
+  },
+  "123": {
+    "inputs": {
+      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "clip": [
+        "133",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode_ISO",
+    "_meta": {
+      "title": "CLIPTextEncode_ISO"
+    }
+  },
+  "133": {
+    "inputs": {
+      "gate": [
+        "103",
+        1
+      ],
+      "source": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "GateAny",
+    "_meta": {
+      "title": "Gate (Any)"
+    }
+  }
+}

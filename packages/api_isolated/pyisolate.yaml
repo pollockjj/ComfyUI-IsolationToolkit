@@ -1,0 +1,6 @@
+# Capability declarations (host controls policy)
+# API nodes need network - cannot run in sandbox
+can_isolate: true
+can_sandbox: false
+share_torch: true
+dependencies: []

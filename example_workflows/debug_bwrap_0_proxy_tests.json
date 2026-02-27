@@ -1,0 +1,262 @@
+{
+  "44": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "122": {
+    "inputs": {},
+    "class_type": "ProxyTestFolderPaths",
+    "_meta": {
+      "title": "Proxy Test: Folder Paths"
+    }
+  },
+  "123": {
+    "inputs": {
+      "model": [
+        "44",
+        0
+      ],
+      "clip": [
+        "141",
+        1
+      ],
+      "vae": [
+        "44",
+        2
+      ]
+    },
+    "class_type": "ProxyTestModelManagement",
+    "_meta": {
+      "title": "Proxy Test: Model Management"
+    }
+  },
+  "124": {
+    "inputs": {},
+    "class_type": "ProxyTestLatentFormats",
+    "_meta": {
+      "title": "Proxy Test: Latent Formats"
+    }
+  },
+  "125": {
+    "inputs": {
+      "latent": [
+        "130",
+        0
+      ]
+    },
+    "class_type": "ProxyTestUtils",
+    "_meta": {
+      "title": "Proxy Test: Utils"
+    }
+  },
+  "126": {
+    "inputs": {
+      "filename_prefix": "Proxy_Test_Model_Management",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "127": {
+    "inputs": {
+      "filename_prefix": "Proxy_Test_Utils",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "128": {
+    "inputs": {
+      "filename_prefix": "Proxy_Test_Folder_Paths",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "129": {
+    "inputs": {
+      "filename_prefix": "Proxy_Test_Latent_Formats",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "130": {
+    "inputs": {
+      "width": 512,
+      "height": 512,
+      "length": 97,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLTXVLatentVideo",
+    "_meta": {
+      "title": "EmptyLTXVLatentVideo"
+    }
+  },
+  "131": {
+    "inputs": {
+      "console": true,
+      "display": true,
+      "prefix": "",
+      "any_value": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "Show any [Crystools]",
+    "_meta": {
+      "title": "🪛 Show any value to console/display"
+    }
+  },
+  "132": {
+    "inputs": {
+      "console": true,
+      "display": true,
+      "prefix": "",
+      "any_value": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "Show any [Crystools]",
+    "_meta": {
+      "title": "🪛 Show any value to console/display"
+    }
+  },
+  "133": {
+    "inputs": {
+      "console": false,
+      "display": true,
+      "prefix": "",
+      "any_value": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "Show any [Crystools]",
+    "_meta": {
+      "title": "🪛 Show any value to console/display"
+    }
+  },
+  "134": {
+    "inputs": {
+      "console": true,
+      "display": true,
+      "prefix": "",
+      "any_value": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "Show any [Crystools]",
+    "_meta": {
+      "title": "🪛 Show any value to console/display"
+    }
+  },
+  "138": {
+    "inputs": {
+      "console": true,
+      "display": true,
+      "prefix": "",
+      "any_value": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "Show any [Crystools]",
+    "_meta": {
+      "title": "🪛 Show any value to console/display"
+    }
+  },
+  "139": {
+    "inputs": {
+      "filename_prefix": "Proxy_Test_Model_Patcher",
+      "output_folder": "output",
+      "file_extension": ".txt",
+      "string": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "SaveStringKJ",
+    "_meta": {
+      "title": "Save String KJ"
+    }
+  },
+  "141": {
+    "inputs": {
+      "lora_name": "JuggerCineXL2.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "44",
+        0
+      ],
+      "clip": [
+        "44",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "142": {
+    "inputs": {
+      "model": [
+        "141",
+        0
+      ],
+      "clip": [
+        "141",
+        1
+      ],
+      "vae": [
+        "44",
+        2
+      ],
+      "latent": [
+        "130",
+        0
+      ]
+    },
+    "class_type": "ProxyTestModelPatcher",
+    "_meta": {
+      "title": "Proxy Test: Model Patcher (Full)"
+    }
+  }
+}

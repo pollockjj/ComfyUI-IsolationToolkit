@@ -1,0 +1,6 @@
+isolated: true
+share_torch: true
+dependencies: []
+can_isolate: true
+can_sandbox: true
+share_cuda_ipc: true

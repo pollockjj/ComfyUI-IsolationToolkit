@@ -1,0 +1,21 @@
+[project]
+name = "comfyui-isolation-toolkit"
+version = "0.1.0"
+dependencies = []
+
+[tool.comfy.isolation]
+can_isolate = true
+share_torch = true
+
+[tool.ruff]
+lint.select = [
+  "N805",
+  "S307",
+  "S102",
+  "E",
+  "T",
+  "W",
+  "F",
+]
+lint.ignore = ["E501", "E722", "E731", "E712", "E402", "E741"]
+exclude = ["*.ipynb", "**/generated/*.pyi"]
