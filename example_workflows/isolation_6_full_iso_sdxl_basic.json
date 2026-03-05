@@ -1,18 +1,9 @@
 {
-  "1": {
-    "inputs": {
-      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple_ISO",
-    "_meta": {
-      "title": "CheckpointLoaderSimple_ISO"
-    }
-  },
   "2": {
     "inputs": {
       "text": "cinematic wide shot of a futuristic city at dusk, ultra detailed, volumetric lighting",
       "clip": [
-        "1",
+        "8",
         1
       ]
     },
@@ -25,7 +16,7 @@
     "inputs": {
       "text": "text, watermark, low quality, blurry",
       "clip": [
-        "1",
+        "8",
         1
       ]
     },
@@ -47,14 +38,14 @@
   },
   "5": {
     "inputs": {
-      "seed": 5770521,
+      "seed": 321789321343961,
       "steps": 20,
       "cfg": 8,
       "sampler_name": "euler",
       "scheduler": "normal",
       "denoise": 1,
       "model": [
-        "1",
+        "8",
         0
       ],
       "positive": [
@@ -82,7 +73,7 @@
         0
       ],
       "vae": [
-        "1",
+        "8",
         2
       ]
     },
@@ -102,6 +93,15 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "SaveImage"
+    }
+  },
+  "8": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
     }
   }
 }
