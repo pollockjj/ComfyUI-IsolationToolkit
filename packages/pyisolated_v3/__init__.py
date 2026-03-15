@@ -22,6 +22,7 @@ from .nodes_proxy_test_model_management import ProxyTestModelManagement
 from .nodes_proxy_test_model_patcher import ProxyTestModelPatcher
 from .nodes_proxy_test_model_sampler import ProxyTestModelSampler
 from .nodes_proxy_test_preview_pipeline import ProxyTestPreviewPipeline
+from .nodes_proxy_test_sealed_worker import ProxyTestSealedWorker
 from .nodes_proxy_test_utils import ProxyTestUtils
 from .nodes_proxy_test_vae import ProxyTestVAE
 from .nodes_security_audit import SecurityAudit
@@ -49,6 +50,7 @@ PROXY_TEST_NODES = [
     ProxyTestModelSampler,
     ProxyTestCliArgs,
     ProxyTestPreviewPipeline,
+    ProxyTestSealedWorker,
 ]
 
 EXPERIMENTAL_NODES = [
