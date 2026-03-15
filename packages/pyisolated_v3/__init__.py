@@ -16,6 +16,7 @@ from .nodes_free_memory import FreeMemoryImagePassthrough
 from .nodes_gate import GateAny
 from .nodes_proxy_test_cli_args import ProxyTestCliArgs
 from .nodes_proxy_test_clip import ProxyTestCLIP
+from .nodes_proxy_test_conda_sealed_worker import ProxyTestCondaSealedWorker
 from .nodes_proxy_test_folder_paths import ProxyTestFolderPaths
 from .nodes_proxy_test_latent_formats import ProxyTestLatentFormats
 from .nodes_proxy_test_model_management import ProxyTestModelManagement
@@ -51,6 +52,7 @@ PROXY_TEST_NODES = [
     ProxyTestCliArgs,
     ProxyTestPreviewPipeline,
     ProxyTestSealedWorker,
+    ProxyTestCondaSealedWorker,
 ]
 
 EXPERIMENTAL_NODES = [

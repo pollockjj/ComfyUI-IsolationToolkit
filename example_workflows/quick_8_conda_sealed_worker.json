@@ -1,0 +1,91 @@
+{
+    "20": {
+        "inputs": {},
+        "class_type": "CondaSealedRuntimeProbe",
+        "_meta": {
+            "title": "Conda Sealed Runtime Probe"
+        }
+    },
+    "21": {
+        "inputs": {},
+        "class_type": "CondaSealedOpenWeatherDataset",
+        "_meta": {
+            "title": "Conda Sealed Open Weather Dataset"
+        }
+    },
+    "22": {
+        "inputs": {
+            "width": 64,
+            "height": 64,
+            "batch_size": 1
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+            "title": "Empty Latent Image"
+        }
+    },
+    "23": {
+        "inputs": {
+            "latent": [
+                "22",
+                0
+            ]
+        },
+        "class_type": "CondaSealedLatentEcho",
+        "_meta": {
+            "title": "Conda Sealed Latent Echo"
+        }
+    },
+    "24": {
+        "inputs": {
+            "runtime_report": [
+                "20",
+                1
+            ],
+            "python_exe": [
+                "20",
+                5
+            ],
+            "dependency_report": [
+                "21",
+                2
+            ],
+            "saw_comfy_root": [
+                "20",
+                2
+            ],
+            "imported_comfy_wrapper": [
+                "20",
+                3
+            ],
+            "saw_user_site": [
+                "20",
+                6
+            ],
+            "sum_value": [
+                "21",
+                0
+            ],
+            "grib_path": [
+                "21",
+                1
+            ],
+            "json_tensor": [
+                "23",
+                1
+            ],
+            "original_latent": [
+                "22",
+                0
+            ],
+            "echoed_latent": [
+                "23",
+                0
+            ]
+        },
+        "class_type": "ProxyTestCondaSealedWorker",
+        "_meta": {
+            "title": "Proxy Test: Conda Sealed Worker"
+        }
+    }
+}
