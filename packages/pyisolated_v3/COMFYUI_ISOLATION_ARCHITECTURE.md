@@ -137,7 +137,29 @@ Extensions declare isolation support in `pyproject.toml`:
 [tool.comfy.isolation]
 can_isolate = true    # Extension supports isolation
 share_torch = true    # Share CUDA IPC for tensors
+
+[tool.comfy.isolation.cuda_wheels]
+index_url = "https://pozzettiandrea.github.io/cuda-wheels/"
+packages = ["flash-attn", "sageattention"]
+
+[tool.comfy.isolation.cuda_wheels.package_map]
+flash_attn = "flash-attn"
 ```
+
+`cuda_wheels` is opt-in and only applies to listed dependencies from `[project.dependencies]`.
+Matching is runtime-aware: the resolver selects wheels for the current host Python tags plus the
+host PyTorch/CUDA major.minor tuple, then installs the exact wheel by direct URL into the
+isolated venv.
+
+Supported boundary:
+- same Python interpreter family as the host
+- same host torch stack used to derive the wheel tuple
+- CUDA-tagged custom wheels from a configured index
+
+Not supported by this architecture:
+- conda environments
+- alternate child Python interpreters
+- child environments with a different Python major/minor than the host
 
 Environment variables control enforcement:
 - `PYISOLATE_ENFORCE_ISOLATED` - Force all extensions to isolate
