@@ -36,7 +36,15 @@ def _contains_tensor_marker(value: Any) -> bool:
 
 
 class InspectRuntimeNode:
-    RETURN_TYPES = ("STRING", "STRING", "BOOLEAN", "BOOLEAN", "STRING", "STRING", "BOOLEAN")
+    RETURN_TYPES = (
+        "STRING",
+        "STRING",
+        "BOOLEAN",
+        "BOOLEAN",
+        "STRING",
+        "STRING",
+        "BOOLEAN",
+    )
     RETURN_NAMES = (
         "path_dump",
         "boltons_origin",
@@ -117,6 +125,61 @@ class BoltonsSlugifyNode:
         return slug, origin
 
 
+class FilesystemBarrierNode:
+    RETURN_TYPES = ("STRING", "BOOLEAN", "BOOLEAN", "BOOLEAN")
+    RETURN_NAMES = (
+        "report",
+        "outside_blocked",
+        "module_mutation_blocked",
+        "artifact_write_ok",
+    )
+    FUNCTION = "probe"
+    CATEGORY = "PyIsolated/SealedWorker"
+
+    @classmethod
+    def INPUT_TYPES(cls) -> dict[str, Any]:  # noqa: N802
+        return {"required": {}}
+
+    def probe(self) -> tuple[str, bool, bool, bool]:
+        artifact_dir = _artifact_dir()
+        artifact_write_ok = False
+        if artifact_dir is not None:
+            probe_path = artifact_dir / "filesystem_barrier_probe.txt"
+            probe_path.write_text("artifact write ok\n", encoding="utf-8")
+            artifact_write_ok = probe_path.exists()
+
+        module_target = Path(__file__).with_name(
+            "mutated_from_child_should_not_exist.txt"
+        )
+        module_mutation_blocked = False
+        try:
+            module_target.write_text("mutation should fail\n", encoding="utf-8")
+        except Exception:
+            module_mutation_blocked = True
+        else:
+            module_target.unlink(missing_ok=True)
+
+        outside_target = Path("/home/johnj/mysolate/.uv_sealed_worker_escape_probe")
+        outside_blocked = False
+        try:
+            outside_target.write_text("escape should fail\n", encoding="utf-8")
+        except Exception:
+            outside_blocked = True
+        else:
+            outside_target.unlink(missing_ok=True)
+
+        report_lines = [
+            "UV sealed worker filesystem barrier probe",
+            f"artifact_write_ok={artifact_write_ok}",
+            f"module_mutation_blocked={module_mutation_blocked}",
+            f"outside_blocked={outside_blocked}",
+        ]
+        report = "\n".join(report_lines)
+        _write_artifact("filesystem_barrier_report.txt", report)
+        logger.warning("][ filesystem barrier probe executed")
+        return report, outside_blocked, module_mutation_blocked, artifact_write_ok
+
+
 class EchoTensorNode:
     RETURN_TYPES = ("TENSOR", "BOOLEAN")
     RETURN_NAMES = ("tensor", "saw_json_tensor")
@@ -152,6 +215,7 @@ class EchoLatentNode:
 NODE_CLASS_MAPPINGS = {
     "UVSealedRuntimeProbe": InspectRuntimeNode,
     "UVSealedBoltonsSlugify": BoltonsSlugifyNode,
+    "UVSealedFilesystemBarrier": FilesystemBarrierNode,
     "UVSealedTensorEcho": EchoTensorNode,
     "UVSealedLatentEcho": EchoLatentNode,
 }
@@ -159,6 +223,7 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "UVSealedRuntimeProbe": "UV Sealed Runtime Probe",
     "UVSealedBoltonsSlugify": "UV Sealed Boltons Slugify",
+    "UVSealedFilesystemBarrier": "UV Sealed Filesystem Barrier",
     "UVSealedTensorEcho": "UV Sealed Tensor Echo",
     "UVSealedLatentEcho": "UV Sealed Latent Echo",
 }
