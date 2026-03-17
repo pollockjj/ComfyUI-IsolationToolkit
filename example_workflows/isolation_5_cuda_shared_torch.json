@@ -1,205 +1,651 @@
 {
-  "3": {
-    "inputs": {
-      "seed": 5770525,
-      "steps": 30,
-      "cfg": 6,
-      "sampler_name": "uni_pc",
-      "scheduler": "simple",
-      "denoise": 1,
-      "model": [
-        "48",
-        0
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 62,
+  "last_link_id": 37,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        509.6197265625,
+        318
       ],
-      "positive": [
-        "61",
-        0
+      "size": [
+        400,
+        200
       ],
-      "negative": [
-        "7",
-        0
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 22
+        }
       ],
-      "latent_image": [
-        "40",
-        0
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            20,
+            29
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走"
       ]
     },
-    "class_type": "KSampler",
-    "_meta": {
-      "title": "KSampler"
-    }
-  },
-  "7": {
-    "inputs": {
-      "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
-      "clip": [
-        "38",
-        0
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Negative Prompt)"
-    }
-  },
-  "8": {
-    "inputs": {
-      "samples": [
-        "51",
-        0
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1646.6408203125002,
+        130
       ],
-      "vae": [
-        "39",
-        0
-      ]
-    },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE Decode"
-    }
-  },
-  "28": {
-    "inputs": {
-      "filename_prefix": "debug_dual_isolation",
-      "fps": 16,
-      "lossless": false,
-      "quality": 90,
-      "method": "default",
-      "images": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "SaveAnimatedWEBP",
-    "_meta": {
-      "title": "SaveAnimatedWEBP"
-    }
-  },
-  "37": {
-    "inputs": {
-      "unet_name": "wan2.1_t2v_1.3B_bf16.safetensors",
-      "weight_dtype": "default"
-    },
-    "class_type": "UNETLoader",
-    "_meta": {
-      "title": "Load Diffusion Model"
-    }
-  },
-  "38": {
-    "inputs": {
-      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
-      "type": "wan",
-      "device": "default"
-    },
-    "class_type": "CLIPLoader",
-    "_meta": {
-      "title": "Load CLIP"
-    }
-  },
-  "39": {
-    "inputs": {
-      "vae_name": "wan_2.1_vae.safetensors"
-    },
-    "class_type": "VAELoader",
-    "_meta": {
-      "title": "Load VAE"
-    }
-  },
-  "40": {
-    "inputs": {
-      "width": 416,
-      "height": 240,
-      "length": 25,
-      "batch_size": 1
-    },
-    "class_type": "EmptyHunyuanLatentVideo",
-    "_meta": {
-      "title": "Empty HunyuanVideo 1.0 Latent"
-    }
-  },
-  "48": {
-    "inputs": {
-      "shift": 8,
-      "model": [
-        "37",
-        0
-      ]
-    },
-    "class_type": "ModelSamplingSD3",
-    "_meta": {
-      "title": "ModelSamplingSD3"
-    }
-  },
-  "50": {
-    "inputs": {
-      "seed": 5770525,
-      "steps": 30,
-      "cfg": 6,
-      "sampler_name": "uni_pc",
-      "scheduler": "simple",
-      "denoise": 1,
-      "model": [
-        "48",
-        0
+      "size": [
+        140,
+        46
       ],
-      "positive": [
-        "61",
-        0
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 37
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 24
+        }
       ],
-      "negative": [
-        "7",
-        0
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            25
+          ]
+        }
       ],
-      "latent_image": [
-        "40",
-        0
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 37,
+      "type": "UNETLoader",
+      "pos": [
+        100,
+        130
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "wan2.1_t2v_1.3B_bf16.safetensors",
+        "default"
       ]
     },
-    "class_type": "KSampler_ISO",
-    "_meta": {
-      "title": "KSampler_ISO"
-    }
-  },
-  "51": {
-    "inputs": {
-      "latent_a": [
-        "50",
-        0
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        100,
+        342
       ],
-      "latent_b": [
-        "3",
-        0
+      "size": [
+        270,
+        106
       ],
-      "boolean": [
-        "52",
-        0
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            22,
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "wan",
+        "default"
       ]
     },
-    "class_type": "Latent Input Switch",
-    "_meta": {
-      "title": "Latent Input Switch"
-    }
-  },
-  "52": {
-    "inputs": {
-      "value": true
-    },
-    "class_type": "PrimitiveBoolean",
-    "_meta": {
-      "title": "Boolean"
-    }
-  },
-  "61": {
-    "inputs": {
-      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
-      "clip": [
-        "38",
-        0
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        100,
+        578
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "wan_2.1_vae.safetensors"
       ]
     },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
+    {
+      "id": 48,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        509.6197265625,
+        130
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18,
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        8
+      ]
+    },
+    {
+      "id": 61,
+      "type": "CLIPTextEncode",
+      "pos": [
+        509.6197265625,
+        648
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 34
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            19,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "KSampler_ISO",
+      "pos": [
+        1009.6197265625,
+        522
+      ],
+      "size": [
+        270,
+        474
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 27
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 28
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 29
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "408d9940fea7ef17b81ec97351b4c4e11427fcdd",
+        "Node name for S&R": "KSampler_ISO"
+      },
+      "widgets_values": [
+        187451925999601,
+        "randomize",
+        30,
+        6,
+        "uni_pc",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1037.3048132634813,
+        -44.81129088702923
+      ],
+      "size": [
+        270,
+        474
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        627535175062097,
+        "randomize",
+        30,
+        6,
+        "uni_pc",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 28,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        1886.6408203125002,
+        130
+      ],
+      "size": [
+        502.5543227456883,
+        714.8967684189154
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 25
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4"
+      },
+      "widgets_values": [
+        "debug_dual_isolation",
+        16,
+        false,
+        90,
+        "default"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "EmptyHunyuanLatentVideo",
+      "pos": [
+        100,
+        766
+      ],
+      "size": [
+        309.6197265625,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            21,
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "EmptyHunyuanLatentVideo"
+      },
+      "widgets_values": [
+        768,
+        768,
+        25,
+        1
+      ]
+    },
+    {
+      "id": 62,
+      "type": "LatentConcat",
+      "pos": [
+        1339.736707752711,
+        178.85951224492527
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples1",
+          "type": "LATENT",
+          "link": 35
+        },
+        {
+          "name": "samples2",
+          "type": "LATENT",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "LatentConcat"
+      },
+      "widgets_values": [
+        "t"
+      ]
     }
-  }
+  ],
+  "links": [
+    [
+      18,
+      48,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      19,
+      61,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      20,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      40,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      22,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      24,
+      39,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      25,
+      8,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      37,
+      0,
+      48,
+      0,
+      "MODEL"
+    ],
+    [
+      27,
+      48,
+      0,
+      50,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      61,
+      0,
+      50,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      7,
+      0,
+      50,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      30,
+      40,
+      0,
+      50,
+      3,
+      "LATENT"
+    ],
+    [
+      34,
+      38,
+      0,
+      61,
+      0,
+      "CLIP"
+    ],
+    [
+      35,
+      3,
+      0,
+      62,
+      0,
+      "LATENT"
+    ],
+    [
+      36,
+      50,
+      0,
+      62,
+      1,
+      "LATENT"
+    ],
+    [
+      37,
+      62,
+      0,
+      8,
+      0,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8428138324237352,
+      "offset": [
+        275.5102042263026,
+        487.1535821429919
+      ]
+    },
+    "frontendVersion": "1.39.19"
+  },
+  "version": 0.4
 }

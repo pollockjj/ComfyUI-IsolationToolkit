@@ -1,254 +1,839 @@
 {
-  "6": {
-    "inputs": {
-      "text": "Cinematic tracking shot. A beautiful older woman with a slender physique and long flowing hair strolls casually along a pristine, secluded beach. She is wearing a stylish bikini. Soft golden hour sunlight hits the water. Gentle waves lap at the shore, her hair blowing slightly in the sea breeze. Photorealistic, 8k, slow motion.",
-      "clip": [
-        "38",
-        0
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Positive Prompt)"
-    }
-  },
-  "7": {
-    "inputs": {
-      "text": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
-      "clip": [
-        "38",
-        0
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Negative Prompt)"
-    }
-  },
-  "8": {
-    "inputs": {
-      "samples": [
-        "72",
-        0
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 81,
+  "last_link_id": 46,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        470,
+        460
       ],
-      "vae": [
-        "44",
-        2
-      ]
-    },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE Decode"
-    }
-  },
-  "38": {
-    "inputs": {
-      "clip_name": "t5xxl_fp8_e4m3fn_scaled.safetensors",
-      "type": "ltxv",
-      "device": "default"
-    },
-    "class_type": "CLIPLoader",
-    "_meta": {
-      "title": "Load CLIP"
-    }
-  },
-  "41": {
-    "inputs": {
-      "filename_prefix": "debug_custom_sampler",
-      "fps": 24,
-      "lossless": false,
-      "quality": 95,
-      "method": "default",
-      "images": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "SaveAnimatedWEBP",
-    "_meta": {
-      "title": "SaveAnimatedWEBP"
-    }
-  },
-  "44": {
-    "inputs": {
-      "ckpt_name": "ltx-video-2b-v0.9.5.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
-  "69": {
-    "inputs": {
-      "frame_rate": 25,
-      "positive": [
-        "6",
-        0
+      "size": [
+        400,
+        200
       ],
-      "negative": [
-        "7",
-        0
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly"
       ]
     },
-    "class_type": "LTXVConditioning",
-    "_meta": {
-      "title": "LTXVConditioning"
-    }
-  },
-  "70": {
-    "inputs": {
-      "width": 512,
-      "height": 512,
-      "length": 97,
-      "batch_size": 1
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1711.125,
+        130
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 26
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
     },
-    "class_type": "EmptyLTXVLatentVideo",
-    "_meta": {
-      "title": "EmptyLTXVLatentVideo"
-    }
-  },
-  "71": {
-    "inputs": {
-      "steps": 30,
-      "max_shift": 2.05,
-      "base_shift": 0.95,
-      "stretch": true,
-      "terminal": 0.1,
-      "latent": [
-        "70",
-        0
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        100,
+        130
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24,
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "ltxv",
+        "default"
       ]
     },
-    "class_type": "LTXVScheduler",
-    "_meta": {
-      "title": "LTXVScheduler"
-    }
-  },
-  "72": {
-    "inputs": {
-      "add_noise": true,
-      "noise_seed": [
-        "79",
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        100,
+        366
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            32,
+            38
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            27,
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.5.safetensors"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "LTXVConditioning",
+      "pos": [
+        970,
+        130
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 29
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            33,
+            39
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            34,
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 73,
+      "type": "KSamplerSelect",
+      "pos": [
+        100,
+        854
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            35,
+            41
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ]
+    },
+    {
+      "id": 80,
+      "type": "VAEDecode",
+      "pos": [
+        1711.125,
+        306
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 44
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 81,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        1951.125,
+        414
+      ],
+      "size": [
+        270,
+        366
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 46
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4"
+      },
+      "widgets_values": [
+        "debug_custom_sampler_ISO",
+        24,
+        false,
+        95,
+        "default"
+      ]
+    },
+    {
+      "id": 78,
+      "type": "SamplerCustom_ISO",
+      "pos": [
+        1340,
+        490
+      ],
+      "size": [
+        271.125,
+        230
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 38
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 39
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 40
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 41
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 42
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            44
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom_ISO"
+      },
+      "widgets_values": [
+        true,
+        5770521,
+        "fixed",
         3
-      ],
-      "cfg": 3,
-      "model": [
-        "44",
-        0
-      ],
-      "positive": [
-        "69",
-        0
-      ],
-      "negative": [
-        "69",
-        1
-      ],
-      "sampler": [
-        "73",
-        0
-      ],
-      "sigmas": [
-        "71",
-        0
-      ],
-      "latent_image": [
-        "70",
-        0
       ]
     },
-    "class_type": "SamplerCustom",
-    "_meta": {
-      "title": "SamplerCustom"
-    }
-  },
-  "73": {
-    "inputs": {
-      "sampler_name": "res_multistep"
-    },
-    "class_type": "KSamplerSelect",
-    "_meta": {
-      "title": "KSamplerSelect"
-    }
-  },
-  "78": {
-    "inputs": {
-      "add_noise": true,
-      "noise_seed": [
-        "79",
+    {
+      "id": 72,
+      "type": "SamplerCustom",
+      "pos": [
+        1356.8665771484368,
+        -40.86667785644532
+      ],
+      "size": [
+        271.125,
+        442
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 32
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 33
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 34
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 35
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 36
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            26
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        5770521,
+        "fixed",
         3
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        470,
+        130
       ],
-      "cfg": 3,
-      "model": [
-        "44",
-        0
+      "size": [
+        400,
+        200
       ],
-      "positive": [
-        "69",
-        0
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 24
+        }
       ],
-      "negative": [
-        "69",
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A high-fidelity, cinematic 3D animation of a futuristic cyber-facility representing a computer's kernel. Inside, multiple glowing holographic workers, representing distinct software processes, are manipulating streams of digital code. Suddenly, thick, transparent force fields drop down, enclosing each worker in a completely isolated, soundproof cube, rendering them unable to see or interact with the others. Above each cube, glowing energy pipes are regulated by automated valves that strictly limit the flow of power and material to each worker. The camera pans smoothly across the securely partitioned, efficiently operating grid under moody neon blue and dark grey lighting. Photorealistic, 8k resolution, dynamic lighting."
+      ]
+    },
+    {
+      "id": 71,
+      "type": "LTXVScheduler",
+      "pos": [
+        470,
+        790
+      ],
+      "size": [
+        270,
+        154
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            36,
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        30,
+        2.05,
+        0.95,
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 70,
+      "type": "EmptyLTXVLatentVideo",
+      "pos": [
+        100,
+        594
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            31,
+            37,
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "EmptyLTXVLatentVideo"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        73,
         1
-      ],
-      "sampler": [
-        "73",
-        0
-      ],
-      "sigmas": [
-        "71",
-        0
-      ],
-      "latent_image": [
-        "70",
-        0
       ]
     },
-    "class_type": "SamplerCustom_ISO",
-    "_meta": {
-      "title": "SamplerCustom_ISO"
-    }
-  },
-  "79": {
-    "inputs": {
-      "seed": 334916004904336
-    },
-    "class_type": "Seed",
-    "_meta": {
-      "title": "Seed"
-    }
-  },
-  "80": {
-    "inputs": {
-      "samples": [
-        "78",
-        0
+    {
+      "id": 41,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        1942.3249999999991,
+        -40.13332214355469
       ],
-      "vae": [
-        "44",
-        2
+      "size": [
+        270,
+        366
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4"
+      },
+      "widgets_values": [
+        "debug_custom_sampler",
+        24,
+        false,
+        95,
+        "default"
+      ]
+    }
+  ],
+  "links": [
+    [
+      24,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      25,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      26,
+      72,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      44,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      28,
+      8,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      6,
+      0,
+      69,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      30,
+      7,
+      0,
+      69,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      70,
+      0,
+      71,
+      0,
+      "LATENT"
+    ],
+    [
+      32,
+      44,
+      0,
+      72,
+      0,
+      "MODEL"
+    ],
+    [
+      33,
+      69,
+      0,
+      72,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      34,
+      69,
+      1,
+      72,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      35,
+      73,
+      0,
+      72,
+      3,
+      "SAMPLER"
+    ],
+    [
+      36,
+      71,
+      0,
+      72,
+      4,
+      "SIGMAS"
+    ],
+    [
+      37,
+      70,
+      0,
+      72,
+      5,
+      "LATENT"
+    ],
+    [
+      38,
+      44,
+      0,
+      78,
+      0,
+      "MODEL"
+    ],
+    [
+      39,
+      69,
+      0,
+      78,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      40,
+      69,
+      1,
+      78,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      41,
+      73,
+      0,
+      78,
+      3,
+      "SAMPLER"
+    ],
+    [
+      42,
+      71,
+      0,
+      78,
+      4,
+      "SIGMAS"
+    ],
+    [
+      43,
+      70,
+      0,
+      78,
+      5,
+      "LATENT"
+    ],
+    [
+      44,
+      78,
+      0,
+      80,
+      0,
+      "LATENT"
+    ],
+    [
+      45,
+      44,
+      2,
+      80,
+      1,
+      "VAE"
+    ],
+    [
+      46,
+      80,
+      0,
+      81,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": [
+        317.79298579101584,
+        321.39950876159685
       ]
     },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE Decode"
-    }
+    "frontendVersion": "1.41.16",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "workflowRendererVersion": "LG"
   },
-  "81": {
-    "inputs": {
-      "filename_prefix": "debug_custom_sampler_ISO",
-      "fps": 24,
-      "lossless": false,
-      "quality": 95,
-      "method": "default",
-      "images": [
-        "80",
-        0
-      ]
-    },
-    "class_type": "SaveAnimatedWEBP",
-    "_meta": {
-      "title": "SaveAnimatedWEBP"
-    }
-  }
+  "version": 0.4
 }

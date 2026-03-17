@@ -1,2 +1,0 @@
-quick_1_isolated_Ksampler.json
-isolation_6_full_iso_sdxl_basic.json

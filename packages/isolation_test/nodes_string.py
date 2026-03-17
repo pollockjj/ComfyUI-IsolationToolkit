@@ -1,4 +1,7 @@
+import os
 import re
+
+import folder_paths
 from typing_extensions import override
 from comfy_api.latest import ComfyExtension, io
 
@@ -206,11 +209,51 @@ class RegexReplace_ISO(io.ComfyNode):
         result = re.sub(regex_pattern, replace, string, count=count, flags=flags)
         return io.NodeOutput(result)
 
+class SaveString_ISO(io.ComfyNode):
+
+    @classmethod
+    def define_schema(cls):
+        return io.Schema(
+            node_id='SaveString_ISO',
+            display_name='Save String_ISO',
+            category='utils/string',
+            description='Saves the input string to a text file in the ComfyUI output directory.',
+            inputs=[
+                io.String.Input('string', force_input=True, tooltip='String to save as .txt file'),
+                io.String.Input('filename_prefix', default='text', tooltip='The prefix for the file to save. May include formatting like %date:yyyy-MM-dd%.'),
+                io.String.Input('output_folder', default='output', tooltip='The folder to save the file to.'),
+                io.String.Input('file_extension', default='.txt', optional=True, tooltip='The extension for the file.'),
+            ],
+            outputs=[io.String.Output(display_name='filename')],
+            is_output_node=True,
+        )
+
+    @classmethod
+    def execute(cls, string, filename_prefix='text', output_folder='output', file_extension='.txt'):
+        output_dir = folder_paths.get_output_directory()
+        full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(
+            filename_prefix, output_dir
+        )
+
+        if output_folder != 'output':
+            if not os.path.isabs(output_folder):
+                full_output_folder = os.path.join(output_dir, output_folder)
+            else:
+                full_output_folder = output_folder
+            os.makedirs(full_output_folder, exist_ok=True)
+
+        txt_file = f"{filename_prefix}_{counter:05}_{file_extension}"
+        file_path = os.path.join(full_output_folder, txt_file)
+        with open(file_path, 'w') as f:
+            f.write(string)
+
+        return io.NodeOutput(txt_file)
+
 class StringExtension_ISO(ComfyExtension):
 
     @override
     async def get_node_list(self) -> list[type[io.ComfyNode]]:
-        return [StringConcatenate_ISO, StringSubstring_ISO, StringLength_ISO, CaseConverter_ISO, StringTrim_ISO, StringReplace_ISO, StringContains_ISO, StringCompare_ISO, RegexMatch_ISO, RegexExtract_ISO, RegexReplace_ISO]
+        return [StringConcatenate_ISO, StringSubstring_ISO, StringLength_ISO, CaseConverter_ISO, StringTrim_ISO, StringReplace_ISO, StringContains_ISO, StringCompare_ISO, RegexMatch_ISO, RegexExtract_ISO, RegexReplace_ISO, SaveString_ISO]
 
 async def comfy_entrypoint() -> StringExtension_ISO:
     return StringExtension_ISO()

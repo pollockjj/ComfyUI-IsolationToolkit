@@ -1,367 +1,993 @@
 {
-  "6": {
-    "inputs": {
-      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
-      "clip": [
-        "38",
-        0
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Positive Prompt)"
-    }
-  },
-  "7": {
-    "inputs": {
-      "text": "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly",
-      "clip": [
-        "38",
-        0
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Negative Prompt)"
-    }
-  },
-  "38": {
-    "inputs": {
-      "clip_name": "t5xxl_fp16.safetensors",
-      "type": "ltxv",
-      "device": "default"
-    },
-    "class_type": "CLIPLoader",
-    "_meta": {
-      "title": "Load CLIP"
-    }
-  },
-  "41": {
-    "inputs": {
-      "filename_prefix": "full_iso_stack",
-      "fps": 24,
-      "lossless": false,
-      "quality": 90,
-      "method": "default",
-      "images": [
-        "116",
-        0
-      ]
-    },
-    "class_type": "SaveAnimatedWEBP",
-    "_meta": {
-      "title": "SaveAnimatedWEBP"
-    }
-  },
-  "44": {
-    "inputs": {
-      "ckpt_name": "ltx-video-2b-v0.9.5.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
-  "73": {
-    "inputs": {
-      "sampler_name": "euler"
-    },
-    "class_type": "KSamplerSelect",
-    "_meta": {
-      "title": "KSamplerSelect"
-    }
-  },
-  "96": {
-    "inputs": {
-      "frame_rate": 25,
-      "positive": [
-        "97",
-        0
+  "id": "00000000-0000-0000-0000-000000000000",
+  "revision": 0,
+  "last_node_id": 121,
+  "last_link_id": 64,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        495.484375,
+        130
       ],
-      "negative": [
-        "97",
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Positive Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        495.484375,
+        460
+      ],
+      "size": [
+        400,
+        296
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Negative Prompt)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        100,
+        130
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            32,
+            33
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "ltxv",
+        "default"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "SaveAnimatedWEBP",
+      "pos": [
+        2964.98203125,
+        130
+      ],
+      "size": [
+        270,
+        196
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 34
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4"
+      },
+      "widgets_values": [
+        "full_iso_stack",
+        24,
+        false,
+        90,
+        "default"
+      ]
+    },
+    {
+      "id": 96,
+      "type": "LTXVConditioning_ISO",
+      "pos": [
+        1975.484375,
+        130
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 35
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            43
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVConditioning_ISO"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 97,
+      "type": "LTXVImgToVideo_ISO",
+      "pos": [
+        1605.484375,
+        130
+      ],
+      "size": [
+        270,
+        214
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 37
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 38
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 39
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            35
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            36
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            41,
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVImgToVideo_ISO"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        33,
+        1,
         1
       ]
     },
-    "class_type": "LTXVConditioning_ISO",
-    "_meta": {
-      "title": "LTXVConditioning_ISO"
-    }
-  },
-  "97": {
-    "inputs": {
-      "width": 1024,
-      "height": 1024,
-      "length": 33,
-      "batch_size": 1,
-      "strength": 1,
-      "positive": [
-        "6",
-        0
+    {
+      "id": 98,
+      "type": "LTXVScheduler_ISO",
+      "pos": [
+        1975.484375,
+        338
       ],
-      "negative": [
-        "7",
-        0
+      "size": [
+        270,
+        154
       ],
-      "vae": [
-        "44",
-        2
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "shape": 7,
+          "type": "LATENT",
+          "link": 41
+        }
       ],
-      "image": [
-        "105",
-        0
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LTXVScheduler_ISO"
+      },
+      "widgets_values": [
+        20,
+        2.05,
+        0.95,
+        true,
+        0.1
       ]
     },
-    "class_type": "LTXVImgToVideo_ISO",
-    "_meta": {
-      "title": "LTXVImgToVideo_ISO"
-    }
-  },
-  "98": {
-    "inputs": {
-      "steps": 20,
-      "max_shift": 2.05,
-      "base_shift": 0.95,
-      "stretch": true,
-      "terminal": 0.1,
-      "latent": [
-        "97",
-        2
+    {
+      "id": 101,
+      "type": "SamplerCustom_ISO",
+      "pos": [
+        2345.484375,
+        130
+      ],
+      "size": [
+        271.125,
+        230
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 42
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 43
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 44
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 45
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 46
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 47
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            56
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom_ISO"
+      },
+      "widgets_values": [
+        true,
+        180662818265011,
+        "randomize",
+        3
       ]
     },
-    "class_type": "LTXVScheduler_ISO",
-    "_meta": {
-      "title": "LTXVScheduler_ISO"
-    }
-  },
-  "99": {
-    "inputs": {
-      "sampler_name": "euler"
-    },
-    "class_type": "KSamplerSelect_ISO",
-    "_meta": {
-      "title": "KSamplerSelect_ISO"
-    }
-  },
-  "101": {
-    "inputs": {
-      "add_noise": true,
-      "noise_seed": 5770521,
-      "cfg": 3,
-      "model": [
-        "44",
-        0
+    {
+      "id": 104,
+      "type": "KSampler",
+      "pos": [
+        995.484375,
+        130
       ],
-      "positive": [
-        "96",
-        0
+      "size": [
+        270,
+        474
       ],
-      "negative": [
-        "96",
-        1
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 48
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 49
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 50
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 51
+        }
       ],
-      "sampler": [
-        "99",
-        0
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            52
+          ]
+        }
       ],
-      "sigmas": [
-        "98",
-        0
-      ],
-      "latent_image": [
-        "97",
-        2
-      ]
-    },
-    "class_type": "SamplerCustom_ISO",
-    "_meta": {
-      "title": "SamplerCustom_ISO"
-    }
-  },
-  "103": {
-    "inputs": {
-      "ckpt_name": "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
-  "104": {
-    "inputs": {
-      "seed": 5770521,
-      "steps": 20,
-      "cfg": 8,
-      "sampler_name": "euler",
-      "scheduler": "normal",
-      "denoise": 1,
-      "model": [
-        "103",
-        0
-      ],
-      "positive": [
-        "115",
-        0
-      ],
-      "negative": [
-        "107",
-        0
-      ],
-      "latent_image": [
-        "108",
-        0
-      ]
-    },
-    "class_type": "KSampler",
-    "_meta": {
-      "title": "KSampler"
-    }
-  },
-  "105": {
-    "inputs": {
-      "samples": [
-        "104",
-        0
-      ],
-      "vae": [
-        "103",
-        2
-      ]
-    },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE Decode"
-    }
-  },
-  "107": {
-    "inputs": {
-      "text": "text, watermark",
-      "clip": [
-        "103",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "108": {
-    "inputs": {
-      "width": 1024,
-      "height": 1024,
-      "batch_size": 1
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "Empty Latent Image"
-    }
-  },
-  "115": {
-    "inputs": {
-      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
-      "clip": [
-        "103",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        248910589589026,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
         1
       ]
     },
-    "class_type": "CLIPTextEncode_ISO",
-    "_meta": {
-      "title": "CLIPTextEncode_ISO"
-    }
-  },
-  "116": {
-    "inputs": {
-      "samples": [
-        "101",
-        0
+    {
+      "id": 105,
+      "type": "VAEDecode",
+      "pos": [
+        1365.484375,
+        130
       ],
-      "vae": [
-        "44",
-        2
-      ]
-    },
-    "class_type": "VAEDecode_ISO",
-    "_meta": {
-      "title": "VAEDecode_ISO"
-    }
-  },
-  "117": {
-    "inputs": {
-      "model": "Florence-2-large-PromptGen-v2.0",
-      "precision": "fp16",
-      "attention": "sdpa",
-      "convert_to_safetensors": false
-    },
-    "class_type": "Florence2ModelLoader",
-    "_meta": {
-      "title": "Florence2ModelLoader"
-    }
-  },
-  "118": {
-    "inputs": {
-      "text_input": "",
-      "task": "prompt_gen_analyze",
-      "fill_mask": true,
-      "keep_model_loaded": false,
-      "max_new_tokens": 1024,
-      "num_beams": 3,
-      "do_sample": true,
-      "output_mask_select": "",
-      "seed": 5770521,
-      "image": [
-        "120",
-        0
+      "size": [
+        140,
+        46
       ],
-      "florence2_model": [
-        "117",
-        0
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 52
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 107,
+      "type": "CLIPTextEncode",
+      "pos": [
+        495.484375,
+        790
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            50
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text, watermark"
       ]
     },
-    "class_type": "Florence2Run",
-    "_meta": {
-      "title": "Florence2Run"
+    {
+      "id": 115,
+      "type": "CLIPTextEncode_ISO",
+      "pos": [
+        495.484375,
+        1120
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 55
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode_ISO"
+      },
+      "widgets_values": [
+        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules"
+      ]
+    },
+    {
+      "id": 116,
+      "type": "VAEDecode_ISO",
+      "pos": [
+        2716.609375,
+        130
+      ],
+      "size": [
+        148.37265625,
+        46
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 56
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode_ISO"
+      }
+    },
+    {
+      "id": 99,
+      "type": "KSamplerSelect_ISO",
+      "pos": [
+        1636.3289929077146,
+        509.6774000000003
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect_ISO"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 103,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        35.57960000000003,
+        641.0654141845702
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            48
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            54,
+            55
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors"
+      ]
+    },
+    {
+      "id": 108,
+      "type": "EmptyLatentImage",
+      "pos": [
+        71.69409645385758,
+        951.0550141845704
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1298.609985815429,
+        479.22379290771477
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            42
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            39,
+            57
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.16.4",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.5.safetensors"
+      ]
     }
+  ],
+  "links": [
+    [
+      32,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      33,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      34,
+      116,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      97,
+      0,
+      96,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      36,
+      97,
+      1,
+      96,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      37,
+      6,
+      0,
+      97,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      38,
+      7,
+      0,
+      97,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      39,
+      44,
+      2,
+      97,
+      2,
+      "VAE"
+    ],
+    [
+      40,
+      105,
+      0,
+      97,
+      3,
+      "IMAGE"
+    ],
+    [
+      41,
+      97,
+      2,
+      98,
+      0,
+      "LATENT"
+    ],
+    [
+      42,
+      44,
+      0,
+      101,
+      0,
+      "MODEL"
+    ],
+    [
+      43,
+      96,
+      0,
+      101,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      44,
+      96,
+      1,
+      101,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      45,
+      99,
+      0,
+      101,
+      3,
+      "SAMPLER"
+    ],
+    [
+      46,
+      98,
+      0,
+      101,
+      4,
+      "SIGMAS"
+    ],
+    [
+      47,
+      97,
+      2,
+      101,
+      5,
+      "LATENT"
+    ],
+    [
+      48,
+      103,
+      0,
+      104,
+      0,
+      "MODEL"
+    ],
+    [
+      49,
+      115,
+      0,
+      104,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      50,
+      107,
+      0,
+      104,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      51,
+      108,
+      0,
+      104,
+      3,
+      "LATENT"
+    ],
+    [
+      52,
+      104,
+      0,
+      105,
+      0,
+      "LATENT"
+    ],
+    [
+      53,
+      103,
+      2,
+      105,
+      1,
+      "VAE"
+    ],
+    [
+      54,
+      103,
+      1,
+      107,
+      0,
+      "CLIP"
+    ],
+    [
+      55,
+      103,
+      1,
+      115,
+      0,
+      "CLIP"
+    ],
+    [
+      56,
+      101,
+      0,
+      116,
+      0,
+      "LATENT"
+    ],
+    [
+      57,
+      44,
+      2,
+      116,
+      1,
+      "VAE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6830134553650711,
+      "offset": [
+        279.3208336345926,
+        220.5430252364413
+      ]
+    },
+    "frontendVersion": "1.41.16",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
-  "119": {
-    "inputs": {
-      "filename_prefix": "debug_full_iso_stack",
-      "output_folder": "output",
-      "file_extension": ".txt",
-      "string": [
-        "118",
-        2
-      ]
-    },
-    "class_type": "SaveStringKJ",
-    "_meta": {
-      "title": "Save String KJ"
-    }
-  },
-  "120": {
-    "inputs": {
-      "indexes": "32",
-      "images": [
-        "116",
-        0
-      ]
-    },
-    "class_type": "GetImagesFromBatchIndexed",
-    "_meta": {
-      "title": "Get Images From Batch Indexed"
-    }
-  },
-  "121": {
-    "inputs": {
-      "filename_prefix": "debug_full_iso_stack",
-      "images": [
-        "120",
-        0
-      ]
-    },
-    "class_type": "SaveImage",
-    "_meta": {
-      "title": "Save Image"
-    }
-  }
+  "version": 0.4
 }
