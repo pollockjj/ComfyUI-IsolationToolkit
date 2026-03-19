@@ -8,7 +8,6 @@ from comfy_api.latest import ComfyExtension, IO
 
 from .packages.api_isolated import comfy_entrypoint as api_entrypoint
 from .packages.isolation_test import comfy_entrypoint as isolation_test_entrypoint
-from .packages.pyisolated_v3 import comfy_entrypoint as pyisolated_v3_entrypoint
 
 logger = logging.getLogger(__name__)
 STRICT_ENV = "COMFY_ISOLATION_TOOLKIT_STRICT"
@@ -41,10 +40,6 @@ class UnifiedIsolationToolkitExtension(ComfyExtension):
         node_list.extend(
             await _collect_nodes("isolation_test", isolation_test_entrypoint, required=True)
         )
-        node_list.extend(
-            await _collect_nodes("pyisolated_v3", pyisolated_v3_entrypoint, required=True)
-        )
-
         if os.environ.get(ENABLE_API_ENV, "1") == "1":
             node_list.extend(
                 await _collect_nodes("api_isolated", api_entrypoint, required=False)
