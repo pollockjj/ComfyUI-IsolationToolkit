@@ -77,8 +77,8 @@
   },
   "40": {
     "inputs": {
-      "width": 416,
-      "height": 240,
+      "width": 640,
+      "height": 480,
       "length": 25,
       "batch_size": 1
     },
@@ -102,7 +102,7 @@
   },
   "50": {
     "inputs": {
-      "seed": 5770525,
+      "seed": 342651012203895,
       "steps": 30,
       "cfg": 6,
       "sampler_name": "uni_pc",
@@ -132,7 +132,7 @@
   },
   "61": {
     "inputs": {
-      "text": "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"HOST\" sits in the center. Surrounding it are independent, floating glass containment modules",
+      "text": "A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled sits in the center. Surrounding it are independent, floating glass containment modules",
       "clip": [
         "38",
         0
