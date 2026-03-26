@@ -1,8 +1,8 @@
 {
   "id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65",
   "revision": 0,
-  "last_node_id": 82,
-  "last_link_id": 81,
+  "last_node_id": 70,
+  "last_link_id": 80,
   "nodes": [
     {
       "id": 35,
@@ -138,7 +138,7 @@
         26
       ],
       "flags": {},
-      "order": 19,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -182,7 +182,7 @@
         46
       ],
       "flags": {},
-      "order": 21,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -323,7 +323,7 @@
         60
       ],
       "flags": {},
-      "order": 17,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -370,7 +370,7 @@
         660
       ],
       "flags": {},
-      "order": 22,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -397,6 +397,53 @@
       ]
     },
     {
+      "id": 67,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -330.440328621805,
+        236.39511318951978
+      ],
+      "size": [
+        410,
+        370
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            71,
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.73",
+        "Node name for S&R": "CLIPTextEncode",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. A central, glowing platinum processor core labeled \"ComfyUI\" sits in the center. Surrounding it are independent, floating glass containment modules"
+      ]
+    },
+    {
       "id": 70,
       "type": "KSampler",
       "pos": [
@@ -408,7 +455,7 @@
         474
       ],
       "flags": {},
-      "order": 20,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -463,519 +510,6 @@
         "simple",
         1
       ]
-    },
-    {
-      "id": 75,
-      "type": "UNETLoader_ZIMG",
-      "pos": [
-        -612.9452807990634,
-        1051.7642156055883
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "UNETLoader_ZIMG"
-      },
-      "widgets_values": [
-        "z_image_turbo_bf16.safetensors",
-        "default"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 67,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -338.5070400475863,
-        516.5285024717463
-      ],
-      "size": [
-        422.46671142578134,
-        88
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 79
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "widget": {
-            "name": "text"
-          },
-          "link": 81
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            71,
-            76
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.73",
-        "Node name for S&R": "CLIPTextEncode",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 76,
-      "type": "StringConcatenate",
-      "pos": [
-        -326.1426809974548,
-        261.05606362164053
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            81
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.17.0",
-        "Node name for S&R": "StringConcatenate"
-      },
-      "widgets_values": [
-        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
-        "A central, glowing platinum processor core labeled \"ComfyUI\" sits in the center. Surrounding it are independent, floating glass containment modules",
-        ""
-      ]
-    },
-    {
-      "id": 78,
-      "type": "CLIPTextEncode_ZIMG",
-      "pos": [
-        -281.38621450545105,
-        1298.282566618772
-      ],
-      "size": [
-        397.06671142578125,
-        102.46671142578134
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPTextEncode_ZIMG"
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 80,
-      "type": "ModelSamplingAuraFlow_ZIMG",
-      "pos": [
-        173.37836068986095,
-        1046.7492109058808
-      ],
-      "size": [
-        323.5376953125,
-        58
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ModelSamplingAuraFlow_ZIMG"
-      },
-      "widgets_values": [
-        3
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 72,
-      "type": "KSampler_ZIMG",
-      "pos": [
-        188.80650805835734,
-        1162.929763500486
-      ],
-      "size": [
-        270,
-        262
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": null
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": null
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "KSampler_ZIMG"
-      },
-      "widgets_values": [
-        5770521,
-        "fixed",
-        8,
-        1,
-        "dpmpp_3m_sde_gpu",
-        "simple",
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 74,
-      "type": "CLIPLoader_ZIMG",
-      "pos": [
-        -618.2447446568186,
-        1184.7745230892751
-      ],
-      "size": [
-        270,
-        106
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPLoader_ZIMG"
-      },
-      "widgets_values": [
-        "qwen_3_8b_fp8mixed.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 71,
-      "type": "VAELoader_ZIMG",
-      "pos": [
-        -616.1776433674228,
-        1353.103405975461
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAELoader_ZIMG"
-      },
-      "widgets_values": [
-        "ae.safetensors"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 73,
-      "type": "EmptySD3LatentImage_ZIMG",
-      "pos": [
-        -611.7764048130686,
-        1486.4679056576344
-      ],
-      "size": [
-        267.5499377441407,
-        106
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "EmptySD3LatentImage_ZIMG"
-      },
-      "widgets_values": [
-        1280,
-        768,
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 77,
-      "type": "StringConcatenate_ISO",
-      "pos": [
-        -288.71963735701314,
-        1043.8158551929905
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "title": "Concatenate_Isolated",
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "StringConcatenate_ISO"
-      },
-      "widgets_values": [
-        "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
-        "A central, glowing platinum processor core labeled \"ComfyUI\" sits in the center. Surrounding it are independent, floating glass containment modules",
-        ""
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 79,
-      "type": "ConditioningZeroOut_ZIMG",
-      "pos": [
-        -296.17840278456504,
-        1467.2814300296611
-      ],
-      "size": [
-        236.433203125,
-        26
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ConditioningZeroOut_ZIMG"
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 81,
-      "type": "VAEDecode_ZIMG",
-      "pos": [
-        -36.067241442583814,
-        1455.8348334611785
-      ],
-      "size": [
-        176.8990234375,
-        46
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": null
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAEDecode_ZIMG"
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 82,
-      "type": "SaveImage_ZIMG",
-      "pos": [
-        176.61404179905443,
-        1482.3929093035856
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "SaveImage_ZIMG"
-      },
-      "widgets_values": [
-        "ComfyUI"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -1058,14 +592,6 @@
       9,
       0,
       "IMAGE"
-    ],
-    [
-      81,
-      76,
-      0,
-      67,
-      1,
-      "STRING"
     ]
   ],
   "groups": [
@@ -1107,28 +633,15 @@
       "color": "#3f789e",
       "font_size": 24,
       "flags": {}
-    },
-    {
-      "id": 5,
-      "title": "Isolated Nodes (From IsolationToolKit)",
-      "bounding": [
-        -665.9848697008862,
-        913.5106192233834,
-        1176.953777418335,
-        689.4170921275024
-      ],
-      "color": "#b58b2a",
-      "font_size": 24,
-      "flags": {}
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5644739300537774,
+      "scale": 0.7513148009015777,
       "offset": [
-        2215.5102604100534,
-        123.44315819495023
+        1472.4243254232365,
+        493.6227245219157
       ]
     },
     "frontendVersion": "1.41.21",

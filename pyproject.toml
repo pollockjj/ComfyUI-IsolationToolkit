@@ -1,7 +1,7 @@
 [project]
 name = "comfyui-isolation-toolkit"
 version = "0.1.0"
-dependencies = []
+dependencies = ["numpy==1.26.4"]
 
 [tool.comfy.isolation]
 can_isolate = true

@@ -1,52 +1,43 @@
 from __future__ import annotations
 
-import logging
-import os
-from typing import Awaitable, Callable
+import importlib
+import inspect
+from pathlib import Path
 
 from comfy_api.latest import ComfyExtension, IO
 
-from .packages.api_isolated import comfy_entrypoint as api_entrypoint
-from .packages.isolation_test import comfy_entrypoint as isolation_test_entrypoint
 
-logger = logging.getLogger(__name__)
-STRICT_ENV = "COMFY_ISOLATION_TOOLKIT_STRICT"
-ENABLE_API_ENV = "COMFY_ISOLATION_TOOLKIT_ENABLE_API"
+def _discover_extensions() -> list[ComfyExtension]:
+    nodes_dir = Path(__file__).parent / "nodes"
+    module_names = sorted(
+        p.stem for p in nodes_dir.glob("nodes_*.py") if p.is_file()
+    )
+    discovered: list[ComfyExtension] = []
 
+    for module_name in module_names:
+        module = importlib.import_module(f".nodes.{module_name}", __package__)
+        for _, obj in inspect.getmembers(module, inspect.isclass):
+            if not issubclass(obj, ComfyExtension) or obj is ComfyExtension:
+                continue
+            if obj.__module__ != module.__name__:
+                continue
+            if not obj.__name__.endswith("Extension_ISO"):
+                continue
+            discovered.append(obj())
 
-async def _collect_nodes(
-    label: str,
-    entrypoint: Callable[[], Awaitable[ComfyExtension]],
-    *,
-    required: bool,
-) -> list[type[IO.ComfyNode]]:
-    try:
-        extension = await entrypoint()
-        return await extension.get_node_list()
-    except Exception:
-        if required or os.environ.get(STRICT_ENV) == "1":
-            raise
-        logger.warning(
-            "][ ComfyUI-IsolationToolkit skipped optional bundle '%s' due to import/runtime error",
-            label,
-            exc_info=True,
-        )
-        return []
+    return discovered
 
 
-class UnifiedIsolationToolkitExtension(ComfyExtension):
+class IsolationToolkitExtension(ComfyExtension):
+    def __init__(self) -> None:
+        self.extensions = _discover_extensions()
+
     async def get_node_list(self) -> list[type[IO.ComfyNode]]:
-        node_list: list[type[IO.ComfyNode]] = []
-        node_list.extend(
-            await _collect_nodes("isolation_test", isolation_test_entrypoint, required=True)
-        )
-        if os.environ.get(ENABLE_API_ENV, "1") == "1":
-            node_list.extend(
-                await _collect_nodes("api_isolated", api_entrypoint, required=False)
-            )
-
-        return node_list
+        nodes: list[type[IO.ComfyNode]] = []
+        for ext in self.extensions:
+            nodes.extend(await ext.get_node_list())
+        return nodes
 
 
-async def comfy_entrypoint() -> UnifiedIsolationToolkitExtension:
-    return UnifiedIsolationToolkitExtension()
+async def comfy_entrypoint() -> IsolationToolkitExtension:
+    return IsolationToolkitExtension()
