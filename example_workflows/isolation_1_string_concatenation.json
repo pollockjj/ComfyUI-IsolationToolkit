@@ -55,9 +55,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "CLIPLoader",
         "models": [
           {
             "name": "qwen_3_4b.safetensors",
@@ -104,9 +104,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "VAELoader",
         "models": [
           {
             "name": "ae.safetensors",
@@ -157,9 +157,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "ConditioningZeroOut",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -207,9 +207,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAEDecode",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "VAEDecode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -246,9 +246,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "EmptySD3LatentImage",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "EmptySD3LatentImage",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -348,9 +348,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "KSampler",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "KSampler",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -392,9 +392,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "UNETLoader_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "UNETLoader_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "z_image_turbo_bf16.safetensors",
@@ -443,9 +443,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "CLIPTextEncode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -487,9 +487,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPTextEncode_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         ""
@@ -541,9 +541,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "KSampler_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "KSampler_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         5770521,
@@ -580,9 +580,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPLoader_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPLoader_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "qwen_3_8b_fp8mixed.safetensors",
@@ -615,9 +615,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoader_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAELoader_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "ae.safetensors"
@@ -648,9 +648,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "EmptySD3LatentImage_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "EmptySD3LatentImage_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         1280,
@@ -689,9 +689,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ConditioningZeroOut_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ConditioningZeroOut_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [],
       "color": "#432",
@@ -731,9 +731,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAEDecode_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAEDecode_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [],
       "color": "#432",
@@ -765,9 +765,9 @@
       ],
       "title": "Concatenate_Isolated",
       "properties": {
+        "Node name for S&R": "StringConcatenate_ISO",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "StringConcatenate_ISO"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
@@ -800,9 +800,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "StringConcatenate",
         "cnr_id": "comfy-core",
-        "ver": "0.17.0",
-        "Node name for S&R": "StringConcatenate"
+        "ver": "0.17.0"
       },
       "widgets_values": [
         "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
@@ -835,9 +835,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "UNETLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "UNETLoader",
         "models": [
           {
             "name": "z_image_turbo_bf16.safetensors",
@@ -856,53 +856,6 @@
       "widgets_values": [
         "z_image_turbo_bf16.safetensors",
         "default"
-      ]
-    },
-    {
-      "id": 69,
-      "type": "ModelSamplingAuraFlow",
-      "pos": [
-        -356.07768082029133,
-        98.6908070902757
-      ],
-      "size": [
-        310,
-        60
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 72
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            85
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.64",
-        "Node name for S&R": "ModelSamplingAuraFlow",
-        "enableTabs": false,
-        "tabWidth": 65,
-        "tabXOffset": 10,
-        "hasSecondTab": false,
-        "secondTabText": "Send Back",
-        "secondTabOffset": 80,
-        "secondTabWidth": 65
-      },
-      "widgets_values": [
-        3
       ]
     },
     {
@@ -934,9 +887,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ModelSamplingAuraFlow_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         3
@@ -967,15 +920,62 @@
       ],
       "outputs": [],
       "properties": {
+        "Node name for S&R": "SaveImage_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "SaveImage_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "ComfyUI"
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 69,
+      "type": "ModelSamplingAuraFlow",
+      "pos": [
+        122.78049478273587,
+        200.68979013989733
+      ],
+      "size": [
+        310,
+        60
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 72
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.64",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        3
+      ]
     }
   ],
   "links": [
@@ -1127,11 +1127,11 @@
     "ds": {
       "scale": 0.6209213230591553,
       "offset": [
-        2030.9458144100531,
-        9.633752095706885
+        1837.6846144100532,
+        235.10515209570687
       ]
     },
-    "frontendVersion": "1.41.21",
+    "frontendVersion": "1.42.8",
     "workflowRendererVersion": "LG",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
