@@ -4,8 +4,22 @@ version = "0.1.0"
 dependencies = ["numpy==1.26.4"]
 
 [tool.comfy.isolation]
-can_isolate = true
-share_torch = true
+can_isolate = true                    # opt-in to run in an isolated child process
+share_torch = true                    # true (default) = shared ComfyUI Torch/APIs, Zero-copy CUDA tensors 
+package_manager = "uv"                # "uv" (default) or "conda"
+execution_model = "host-coupled"      # "host-coupled" (automatic for uv) or "sealed_worker"
+
+# conda_python = "3.XX.X"             # conda sealed_worker only
+# conda_channels = []                 # conda sealed_worker only
+# conda_dependencies = []             # conda sealed_worker only
+# conda_platforms = []                # conda sealed_worker only
+# find_links = []                     # conda sealed_worker only
+
+# [tool.comfy.isolation.cuda_wheels]  # when CUDA-specific wheel index needed
+# index_url = ""                      # or index_urls = []
+# packages = []                       # must match [project.dependencies]
+# package_map = {}                    # override package name for index lookup
+
 
 [tool.ruff]
 lint.select = [
