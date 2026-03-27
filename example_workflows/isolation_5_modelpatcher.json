@@ -91,6 +91,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "UNETLoader_ZIMG"
       },
       "widgets_values": [
@@ -123,6 +125,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "CLIPLoader_ZIMG"
       },
       "widgets_values": [
@@ -156,41 +160,12 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "VAELoader_ZIMG"
       },
       "widgets_values": [
         "ae.safetensors"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 82,
-      "type": "SaveImage_ZIMG",
-      "pos": [
-        123.4672117990544,
-        1696.161306012753
-      ],
-      "size": [
-        270,
-        58
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage_ZIMG"
-      },
-      "widgets_values": [
-        "ComfyUI"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -207,7 +182,7 @@
         200
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -218,6 +193,8 @@
         }
       ],
       "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.17.0",
         "Node name for S&R": "StringConcatenate"
       },
       "widgets_values": [
@@ -238,7 +215,7 @@
         26
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -255,9 +232,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ConditioningZeroOut",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
+        "Node name for S&R": "ConditioningZeroOut",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -280,7 +257,7 @@
         200
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -294,6 +271,8 @@
       ],
       "title": "Concatenate_Isolated",
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "StringConcatenate_ISO"
       },
       "widgets_values": [
@@ -316,7 +295,7 @@
         106
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -329,9 +308,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
+        "Node name for S&R": "CLIPLoader",
         "models": [
           {
             "name": "qwen_3_4b.safetensors",
@@ -365,7 +344,7 @@
         88
       ],
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -382,9 +361,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
+        "Node name for S&R": "CLIPTextEncode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -409,7 +388,7 @@
         58
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -422,9 +401,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "VAELoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
+        "Node name for S&R": "VAELoader",
         "models": [
           {
             "name": "ae.safetensors",
@@ -456,7 +435,7 @@
         46
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -479,9 +458,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
+        "Node name for S&R": "VAEDecode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -504,7 +483,7 @@
         110
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -516,9 +495,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "EmptySD3LatentImage",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
+        "Node name for S&R": "EmptySD3LatentImage",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -545,7 +524,7 @@
         82
       ],
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -558,9 +537,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "UNETLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
+        "Node name for S&R": "UNETLoader",
         "models": [
           {
             "name": "z_image_turbo_bf16.safetensors",
@@ -621,6 +600,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "CLIPTextEncode_ZIMG"
       },
       "widgets_values": [
@@ -660,6 +641,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "ConditioningZeroOut_ZIMG"
       },
       "widgets_values": [],
@@ -678,7 +661,7 @@
         106
       ],
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -691,6 +674,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "EmptySD3LatentImage_ZIMG"
       },
       "widgets_values": [
@@ -713,7 +698,7 @@
         281.8124078015137
       ],
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -746,9 +731,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "KSampler",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
+        "Node name for S&R": "KSampler",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -779,7 +764,7 @@
         60
       ],
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -797,9 +782,9 @@
         }
       ],
       "properties": {
-        "Node name for S&R": "ModelSamplingAuraFlow",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
+        "Node name for S&R": "ModelSamplingAuraFlow",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -858,6 +843,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "KSampler_ZIMG"
       },
       "widgets_values": [
@@ -903,6 +890,8 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "ModelSamplingAuraFlow_ZIMG"
       },
       "widgets_values": [
@@ -947,9 +936,44 @@
         }
       ],
       "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
         "Node name for S&R": "VAEDecode_ZIMG"
       },
       "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 82,
+      "type": "SaveImage_ZIMG",
+      "pos": [
+        123.4672117990544,
+        1696.161306012753
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
+        "Node name for S&R": "SaveImage_ZIMG"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ],
       "color": "#432",
       "bgcolor": "#653"
     }
