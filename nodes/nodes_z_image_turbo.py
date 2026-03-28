@@ -400,7 +400,14 @@ class SaveImage_ZIMG(io.ComfyNode):
             cls.hidden.prompt = prompt
             cls.hidden.extra_pnginfo = extra_pnginfo
 
-        saved = ui.ImageSaveHelper.get_save_images_ui(images, filename_prefix, cls=cls)
+        saved = ui.SavedImages(
+            ui.ImageSaveHelper.save_images(
+                images,
+                filename_prefix=filename_prefix,
+                folder_type=io.FolderType.temp,
+                cls=cls,
+            )
+        )
         return io.NodeOutput(ui=saved)
 
 

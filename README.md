@@ -30,8 +30,7 @@ This repository now follows that format for outward-facing examples.
 - `examples/`: copied stability-battery source set for direct/internal usage.
 
 ## Sealed Worker Coverage
-- `quick_6_uv_sealed_worker.json` and `isolation_7_uv_sealed_worker.json` prove the hermetic `uv + sealed_worker` path under Linux `bwrap`.
-- `quick_8_conda_sealed_worker.json` and `isolation_9_conda_sealed_worker.json` prove the hermetic `conda + sealed_worker` path under Linux `bwrap`.
+- The sealed-worker unit-test fixtures live under `tests/isolation/workflows/` in the ComfyUI test tree.
 - Both provisioners use the same sealed-worker rules: `share_torch = false`, no host `PYTHONPATH` leakage, no host runtime import leakage, and JSON transport for tensors/latents.
 - The hermetic sandbox now runs with an explicit env allowlist instead of inheriting the host environment sweep.
 - Writable paths are intentionally narrow: isolated children only get the configured sandbox writable set plus their provisioned environment, while the host Comfy tree and host site-packages stay read-only or absent.
