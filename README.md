@@ -1,40 +1,34 @@
 # ComfyUI-IsolationToolkit
 
-Unified outward-facing isolation toolkit for ComfyOrg evaluation.
+Example custom node pack demonstrating all standard process isolation methods for ComfyUI via `--use-process-isolation` and pyisolate.
 
-This package recreates and combines the node sets from:
-- `ComfyUI-IsolationTest`
-- `ComfyUI-PyIsolatedV3`
-- `ComfyUI-APIsolated`
+Eight workflows progress from simple to complex, showing how to integrate isolation into existing custom nodes:
 
-The original packages remain untouched for internal multi-extension testing.
+| # | Workflow | What It Shows |
+|:--|:--|:--|
+| 0 | No Isolation | Baseline — same workflow without isolation, proving zero behavioral change |
+| 1 | String Concatenation | Simplest isolated node — string in, string out, no models |
+| 2 | Conditioning + Latent | Passing conditioning and latent tensors across the process boundary |
+| 3 | CLIP + VAE Objects | CLIP encoding and VAE decode via RPC proxies |
+| 4 | ModelSampling | ModelSampling proxy — sigma conversion across processes |
+| 5 | ModelPatcher | Full ModelPatcher proxy — model load, patch, apply, unpatch via RPC |
+| 6 | End to End | Complete image generation pipeline running entirely in an isolated process |
+| 7 | Shared Model + Conditioning | Two isolated KSampler passes sharing the same model and conditioning — zero-copy tensor transport |
+
+## Requirements
+
+- ComfyUI on the `pyisolate-support` branch (or master once merged)
+- `pyisolate>=0.10.1` (included in `requirements.txt`)
+- Launch with `--use-process-isolation --disable-cuda-malloc`
 
 ## Quick Start
-1. Install this custom node into `ComfyUI/custom_nodes/`.
-2. Start ComfyUI.
-3. Open `Workflow > Browse Workflow Templates`.
-4. Open the `ComfyUI-IsolationToolkit` section.
-5. Pick a template from `example_workflows/`.
 
-## Template Format (Comfy-aligned)
-- Official directory: `example_workflows/` at the custom-node root.
-- Workflow template files: `*.json`
-- Optional preview thumbnails: same filename with `.jpg`
-  - Example: `quick_1_isolated_Ksampler.json` + `quick_1_isolated_Ksampler.jpg`
-- Reference: https://docs.comfy.org/custom-nodes/walkthrough#workflow-templates
+1. Clone into `ComfyUI/custom_nodes/`
+2. Start ComfyUI with `--use-process-isolation --disable-cuda-malloc`
+3. Open `Workflow > Browse Workflow Templates`
+4. Open the `ComfyUI-IsolationToolkit` section
+5. Pick a workflow — they progress in complexity from 0 to 7
 
-This repository now follows that format for outward-facing examples.
+## For Custom Node Authors
 
-## Included Examples
-- `example_workflows/`: Comfy template-browser-ready examples (json + thumbnails).
-- `examples/`: copied stability-battery source set for direct/internal usage.
-
-## Sealed Worker Coverage
-- The sealed-worker unit-test fixtures live under `tests/isolation/workflows/` in the ComfyUI test tree.
-- Both provisioners use the same sealed-worker rules: `share_torch = false`, no host `PYTHONPATH` leakage, no host runtime import leakage, and JSON transport for tensors/latents.
-- The hermetic sandbox now runs with an explicit env allowlist instead of inheriting the host environment sweep.
-- Writable paths are intentionally narrow: isolated children only get the configured sandbox writable set plus their provisioned environment, while the host Comfy tree and host site-packages stay read-only or absent.
-
-## Notes
-- Node type names are preserved.
-- Internal layout uses `packages/` to avoid breaking existing source modules while presenting one custom node externally.
+Each workflow corresponds to a node implementation in `packages/`. The isolation manifest is declared in `pyproject.toml` under `[tool.comfy.isolation]`. No code changes are needed beyond the manifest — pyisolate handles environment provisioning, sandbox setup, and RPC proxy wiring automatically.
