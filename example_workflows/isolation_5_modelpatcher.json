@@ -1,35 +1,9 @@
 {
   "id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65",
   "revision": 0,
-  "last_node_id": 82,
+  "last_node_id": 84,
   "last_link_id": 102,
   "nodes": [
-    {
-      "id": 35,
-      "type": "MarkdownNote",
-      "pos": [
-        -1232.6007001945015,
-        202.65113978968594
-      ],
-      "size": [
-        510,
-        600
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Model link",
-      "properties": {},
-      "widgets_values": [
-        "## Report workflow issue\n\nIf you found any issues when running this workflow, [report template issue here](https://github.com/Comfy-Org/workflow_templates/issues)\n\n\n## Model links\n\n**text_encoders**\n\n- [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)\n\n**loras**\n\n- [pixel_art_style_z_image_turbo.safetensors](https://huggingface.co/tarn59/pixel_art_style_lora_z_image_turbo/resolve/main/pixel_art_style_z_image_turbo.safetensors)\n\n**diffusion_models**\n\n- [z_image_turbo_bf16.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors)\n\n**vae**\n\n- [ae.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)\n\n\nModel Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │      └── qwen_3_4b.safetensors\n│   ├── 📂 loras/\n│   │      └── pixel_art_style_z_image_turbo.safetensors\n│   ├── 📂 diffusion_models/\n│   │      └── z_image_turbo_bf16.safetensors\n│   └── 📂 vae/\n│          └── ae.safetensors\n```\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#000"
-    },
     {
       "id": 9,
       "type": "SaveImage",
@@ -42,7 +16,7 @@
         660
       ],
       "flags": {},
-      "order": 22,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -69,52 +43,18 @@
       ]
     },
     {
-      "id": 75,
-      "type": "UNETLoader_ZIMG",
-      "pos": [
-        -666.0921107990634,
-        1265.5326123147556
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": null
-        }
-      ],
-      "properties": {
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "UNETLoader_ZIMG"
-      },
-      "widgets_values": [
-        "z_image_turbo_bf16.safetensors",
-        "default"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 74,
       "type": "CLIPLoader_ZIMG",
       "pos": [
-        -671.3915746568186,
-        1398.5429197984427
+        -658.5074946568187,
+        1261.1127658976854
       ],
       "size": [
         270,
         106
       ],
       "flags": {},
-      "order": 2,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -125,9 +65,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPLoader_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPLoader_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "qwen_3_8b_fp8mixed.safetensors",
@@ -141,15 +81,15 @@
       "id": 71,
       "type": "VAELoader_ZIMG",
       "pos": [
-        -669.3244733674228,
-        1566.8718026846286
+        -656.4403933674229,
+        1429.4416487838714
       ],
       "size": [
         270,
         58
       ],
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -160,9 +100,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoader_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAELoader_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "ae.safetensors"
@@ -174,15 +114,15 @@
       "id": 76,
       "type": "StringConcatenate",
       "pos": [
-        -333.65842709669886,
-        1223.0674358201275
+        -320.7743470966988,
+        1085.6372819193703
       ],
       "size": [
         400,
         200
       ],
       "flags": {},
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -193,9 +133,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "StringConcatenate",
         "cnr_id": "comfy-core",
-        "ver": "0.17.0",
-        "Node name for S&R": "StringConcatenate"
+        "ver": "0.17.0"
       },
       "widgets_values": [
         "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
@@ -207,15 +147,15 @@
       "id": 64,
       "type": "ConditioningZeroOut",
       "pos": [
-        -330.88043301877786,
-        1709.6686531895184
+        -317.9963530187778,
+        1572.2384992887612
       ],
       "size": [
         204.134765625,
         26
       ],
       "flags": {},
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
@@ -232,9 +172,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "ConditioningZeroOut",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -257,7 +197,7 @@
         200
       ],
       "flags": {},
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -271,9 +211,9 @@
       ],
       "title": "Concatenate_Isolated",
       "properties": {
+        "Node name for S&R": "StringConcatenate_ISO",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "StringConcatenate_ISO"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "large letters on the bottom \"Pyisolate\" - A hyper-realistic 3D macro architectural cutaway of a futuristic server interior, visualizing software isolation. ",
@@ -295,7 +235,7 @@
         106
       ],
       "flags": {},
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -308,9 +248,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "CLIPLoader",
         "models": [
           {
             "name": "qwen_3_4b.safetensors",
@@ -336,15 +276,15 @@
       "id": 67,
       "type": "CLIPTextEncode",
       "pos": [
-        -347.0964922460727,
-        1519.339576017584
+        -334.2124122460727,
+        1381.9094221168268
       ],
       "size": [
         422.46671142578134,
         88
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -361,9 +301,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "CLIPTextEncode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -388,7 +328,7 @@
         58
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -401,9 +341,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "VAELoader",
         "models": [
           {
             "name": "ae.safetensors",
@@ -427,15 +367,15 @@
       "id": 65,
       "type": "VAEDecode",
       "pos": [
-        -100.89761202634594,
-        1681.2855297849787
+        -88.01353202634596,
+        1543.8553758842215
       ],
       "size": [
         210,
         46
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -458,9 +398,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAEDecode",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "VAEDecode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -475,15 +415,15 @@
       "id": 68,
       "type": "EmptySD3LatentImage",
       "pos": [
-        -674.0611747210486,
-        1706.7846223383847
+        -661.1770947210487,
+        1569.3544684376275
       ],
       "size": [
         260,
         110
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -495,9 +435,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "EmptySD3LatentImage",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "EmptySD3LatentImage",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -524,7 +464,7 @@
         82
       ],
       "flags": {},
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -537,9 +477,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "UNETLoader",
         "cnr_id": "comfy-core",
         "ver": "0.3.73",
-        "Node name for S&R": "UNETLoader",
         "models": [
           {
             "name": "z_image_turbo_bf16.safetensors",
@@ -572,7 +512,7 @@
         102.46671142578134
       ],
       "flags": {},
-      "order": 17,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -600,9 +540,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "CLIPTextEncode_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         ""
@@ -622,7 +562,7 @@
         26
       ],
       "flags": {},
-      "order": 19,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -641,9 +581,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ConditioningZeroOut_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ConditioningZeroOut_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [],
       "color": "#432",
@@ -661,7 +601,7 @@
         106
       ],
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -674,9 +614,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "EmptySD3LatentImage_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "EmptySD3LatentImage_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         1280,
@@ -690,15 +630,15 @@
       "id": 70,
       "type": "KSampler",
       "pos": [
-        137.8123801721401,
-        1355.3739516647086
+        150.69646017214015,
+        1217.9437977639514
       ],
       "size": [
         296.74768439697255,
         281.8124078015137
       ],
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -731,9 +671,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "KSampler",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "KSampler",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -756,15 +696,15 @@
       "id": 69,
       "type": "ModelSamplingAuraFlow",
       "pos": [
-        127.0753191797086,
-        1237.8583284376268
+        139.95939917970864,
+        1100.4281745368696
       ],
       "size": [
         310,
         60
       ],
       "flags": {},
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -782,9 +722,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "ModelSamplingAuraFlow",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -809,7 +749,7 @@
         474
       ],
       "flags": {},
-      "order": 20,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -843,9 +783,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "KSampler_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "KSampler_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         5770521,
@@ -871,7 +811,7 @@
         58
       ],
       "flags": {},
-      "order": 18,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -890,9 +830,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "ModelSamplingAuraFlow_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         3
@@ -912,7 +852,7 @@
         46
       ],
       "flags": {},
-      "order": 21,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -936,9 +876,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAEDecode_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "VAEDecode_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [],
       "color": "#432",
@@ -948,15 +888,15 @@
       "id": 82,
       "type": "SaveImage_ZIMG",
       "pos": [
-        123.4672117990544,
-        1696.161306012753
+        136.35129179905442,
+        1558.7311521119957
       ],
       "size": [
         270,
         58
       ],
       "flags": {},
-      "order": 16,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -967,15 +907,123 @@
       ],
       "outputs": [],
       "properties": {
+        "Node name for S&R": "SaveImage_ZIMG",
         "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd",
-        "Node name for S&R": "SaveImage_ZIMG"
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
       },
       "widgets_values": [
         "ComfyUI"
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 83,
+      "type": "MarkdownNote",
+      "pos": [
+        -1259.9163905578614,
+        1032.207800744627
+      ],
+      "size": [
+        510,
+        680
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Incremental changes described here",
+      "properties": {},
+      "widgets_values": [
+        "## Workflow 5: Full Isolated Sampling\n\n### What Changed\n\n**KSampler_ZIMG** is now fully connected. The entire sampling pipeline runs in the isolated child process:\n\n- ModelSamplingAuraFlow_ZIMG → KSampler_ZIMG\n- CLIPTextEncode_ZIMG → KSampler_ZIMG (positive)\n- ConditioningZeroOut_ZIMG → KSampler_ZIMG (negative)\n- EmptySD3LatentImage_ZIMG → KSampler_ZIMG (latent)\n\nBut the loaders (UNET, CLIP, VAE) are still **host-side** feeding into isolated nodes via proxies.\n\n### What Crosses the Process Boundary\n\nAll proxy types are now active simultaneously:\n\n- **MODEL** (ModelPatcher proxy)\n- **CLIP** (CLIPProxy)\n- **CONDITIONING** (zero-copy tensors)\n- **LATENT** (zero-copy tensors)\n- **VAE** (VAEProxy) for final decode\n\n### The Sampling Loop\n\nThe KSampler runs `comfy.sample.sample()` in the child. During each denoising step, the child’s ModelPatcherProxy calls back to the host to execute `apply_model()` on the real GPU model. Tensors transfer via CUDA IPC — zero copy.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 84,
+      "type": "MarkdownNote",
+      "pos": [
+        561.9523716308595,
+        1026.0364172790512
+      ],
+      "size": [
+        510,
+        680
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Code from custom node",
+      "properties": {},
+      "widgets_values": [
+        "## Code: KSampler in Isolation\n\n### Custom Node (`nodes/nodes_z_image_turbo.py`)\n\n```python\nclass KSampler_ZIMG(io.ComfyNode):\n    @classmethod\n    def execute(cls, model, seed, steps,\n                cfg, sampler_name, scheduler,\n                positive, negative,\n                latent_image, denoise):\n        # All of this runs in the child\n        # process. model is a proxy.\n        noise = comfy.sample.prepare_noise(\n            latent_samples, seed, batch_inds\n        )\n        samples = comfy.sample.sample(\n            model,   # ModelPatcherProxy\n            noise, steps, cfg,\n            sampler_name, scheduler,\n            positive, negative,\n            latent_samples,\n            denoise=denoise,\n            ...\n        )\n        return io.NodeOutput(out)\n```\n\n### What Happens During Sampling\n\nEach denoising step triggers:\n1. Child calls `model.apply_model(x, t)` on proxy\n2. Proxy sends RPC to host with CUDA IPC tensor handles\n3. Host executes real model forward pass on GPU\n4. Host returns result tensor via CUDA IPC\n5. Child receives zero-copy tensor reference\n\n### Key Isolation Files\n\n- `comfy/isolation/runtime_helpers.py` — stub class dispatch\n- `comfy/isolation/extension_wrapper.py` — child-side execution\n- `pyisolate/_internal/tensor_serializer.py` — CUDA IPC\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 75,
+      "type": "UNETLoader_ZIMG",
+      "pos": [
+        -653.2080307990635,
+        1128.1024584139984
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader_ZIMG",
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
+      },
+      "widgets_values": [
+        "z_image_turbo_bf16.safetensors",
+        "default"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 35,
+      "type": "MarkdownNote",
+      "pos": [
+        -1232.6007001945015,
+        202.65113978968594
+      ],
+      "size": [
+        510,
+        600
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Process Isolation Example - Model link",
+      "properties": {},
+      "widgets_values": [
+        "## Let's try an example of native Process Isolation in ComfyUI.\n\nWe'll use a popular model, z_image_turbo, as our test. We use two different text encoders just to show a drop-in-and-isolated replacement but if you only have one of the two you can certainly use it for both nodes.\n\n## Model links\n\n**text_encoders**\n\n- [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)\n- [qwen_3_8b_fp8mixed.safetensors](https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors)\n\n**diffusion_models**\n\n- [z_image_turbo_bf16.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors)\n\n**vae**\n\n- [ae.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)\n\n\nModel Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │      └── qwen_3_4b.safetensors\n│   │      └── qwen_3_8b_fp8mixed.safetensors\n│   ├── 📂 diffusion_models/\n│   │      └── z_image_turbo_bf16.safetensors\n│   └── 📂 vae/\n│          └── ae.safetensors\n```\n\nAs we go through the workflows, we'll be replacing parts of the top workflow with isolated components so you can see how both the custom_node code is written and how the --use-process-isolation code written to make it all work.\n\nThe two other comment boxes will walk you through each step as you progress through the workflows"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
     }
   ],
   "links": [
@@ -1112,8 +1160,8 @@
       "id": 5,
       "title": "Isolated Nodes (From IsolationToolKit)",
       "bounding": [
-        -719.1316997008862,
-        1127.279015932551,
+        -689.8496997008863,
+        1003.9397367577446,
         1176.953777418335,
         689.4170921275024
       ],
@@ -1127,11 +1175,11 @@
     "ds": {
       "scale": 0.6209213230591553,
       "offset": [
-        1545.6454022115672,
-        123.44286330176169
+        1852.7159100130812,
+        138.47435550024795
       ]
     },
-    "frontendVersion": "1.41.21",
+    "frontendVersion": "1.42.8",
     "workflowRendererVersion": "LG",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,

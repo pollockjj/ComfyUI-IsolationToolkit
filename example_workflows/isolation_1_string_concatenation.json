@@ -1,35 +1,9 @@
 {
   "id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65",
   "revision": 0,
-  "last_node_id": 82,
+  "last_node_id": 84,
   "last_link_id": 85,
   "nodes": [
-    {
-      "id": 35,
-      "type": "MarkdownNote",
-      "pos": [
-        -1232.6007001945015,
-        202.65113978968594
-      ],
-      "size": [
-        510,
-        600
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Model link",
-      "properties": {},
-      "widgets_values": [
-        "## Report workflow issue\n\nIf you found any issues when running this workflow, [report template issue here](https://github.com/Comfy-Org/workflow_templates/issues)\n\n\n## Model links\n\n**text_encoders**\n\n- [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)\n\n**loras**\n\n- [pixel_art_style_z_image_turbo.safetensors](https://huggingface.co/tarn59/pixel_art_style_lora_z_image_turbo/resolve/main/pixel_art_style_z_image_turbo.safetensors)\n\n**diffusion_models**\n\n- [z_image_turbo_bf16.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors)\n\n**vae**\n\n- [ae.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)\n\n\nModel Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │      └── qwen_3_4b.safetensors\n│   ├── 📂 loras/\n│   │      └── pixel_art_style_z_image_turbo.safetensors\n│   ├── 📂 diffusion_models/\n│   │      └── z_image_turbo_bf16.safetensors\n│   └── 📂 vae/\n│          └── ae.safetensors\n```\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#000"
-    },
     {
       "id": 62,
       "type": "CLIPLoader",
@@ -42,7 +16,7 @@
         106
       ],
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -91,7 +65,7 @@
         58
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -138,7 +112,7 @@
         26
       ],
       "flags": {},
-      "order": 19,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -182,7 +156,7 @@
         46
       ],
       "flags": {},
-      "order": 21,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -232,7 +206,7 @@
         110
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -275,7 +249,7 @@
         660
       ],
       "flags": {},
-      "order": 22,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -313,7 +287,7 @@
         474
       ],
       "flags": {},
-      "order": 20,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -373,15 +347,15 @@
       "id": 75,
       "type": "UNETLoader_ZIMG",
       "pos": [
-        -666.0921107990634,
-        1265.5326123147556
+        -636.8101107990635,
+        1142.1933331399493
       ],
       "size": [
         270,
         82
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -415,7 +389,7 @@
         88
       ],
       "flags": {},
-      "order": 17,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -462,15 +436,15 @@
       "id": 78,
       "type": "CLIPTextEncode_ZIMG",
       "pos": [
-        -334.533044505451,
-        1512.0509633279394
+        -305.2510445054511,
+        1388.711684153133
       ],
       "size": [
         397.06671142578125,
         102.46671142578134
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [
         {
@@ -501,15 +475,15 @@
       "id": 72,
       "type": "KSampler_ZIMG",
       "pos": [
-        135.65967805835731,
-        1376.6981602096535
+        164.94167805835738,
+        1253.3588810348472
       ],
       "size": [
         270,
         262
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -558,53 +532,18 @@
       "bgcolor": "#653"
     },
     {
-      "id": 74,
-      "type": "CLIPLoader_ZIMG",
-      "pos": [
-        -671.3915746568186,
-        1398.5429197984427
-      ],
-      "size": [
-        270,
-        106
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPLoader_ZIMG",
-        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
-        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
-      },
-      "widgets_values": [
-        "qwen_3_8b_fp8mixed.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 71,
       "type": "VAELoader_ZIMG",
       "pos": [
-        -669.3244733674228,
-        1566.8718026846286
+        -640.0424733674229,
+        1443.5325235098223
       ],
       "size": [
         270,
         58
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -629,15 +568,15 @@
       "id": 73,
       "type": "EmptySD3LatentImage_ZIMG",
       "pos": [
-        -664.9232348130686,
-        1700.2363023668017
+        -635.6412348130686,
+        1576.8970231919955
       ],
       "size": [
         267.5499377441407,
         106
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -664,15 +603,15 @@
       "id": 79,
       "type": "ConditioningZeroOut_ZIMG",
       "pos": [
-        -349.325232784565,
-        1681.0498267388284
+        -320.0432327845651,
+        1557.7105475640221
       ],
       "size": [
         236.433203125,
         26
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -701,15 +640,15 @@
       "id": 81,
       "type": "VAEDecode_ZIMG",
       "pos": [
-        -89.21407144258382,
-        1669.6032301703458
+        -59.932071442583826,
+        1546.2639509955395
       ],
       "size": [
         176.8990234375,
         46
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -751,7 +690,7 @@
         200
       ],
       "flags": {},
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -781,15 +720,15 @@
       "id": 76,
       "type": "StringConcatenate",
       "pos": [
-        -333.65842709669886,
-        1223.0674358201275
+        -304.37642709669893,
+        1099.7281566453212
       ],
       "size": [
         400,
         200
       ],
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -822,7 +761,7 @@
         82
       ],
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -862,15 +801,15 @@
       "id": 80,
       "type": "ModelSamplingAuraFlow_ZIMG",
       "pos": [
-        113.78949068986091,
-        1241.1914630406156
+        143.07149068986095,
+        1117.8521838658094
       ],
       "size": [
         323.5376953125,
         58
       ],
       "flags": {},
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -901,15 +840,15 @@
       "id": 82,
       "type": "SaveImage_ZIMG",
       "pos": [
-        123.4672117990544,
-        1696.161306012753
+        152.74921179905445,
+        1572.8220268379466
       ],
       "size": [
         270,
         58
       ],
       "flags": {},
-      "order": 16,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -942,7 +881,7 @@
         60
       ],
       "flags": {},
-      "order": 18,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -976,6 +915,115 @@
       "widgets_values": [
         3
       ]
+    },
+    {
+      "id": 74,
+      "type": "CLIPLoader_ZIMG",
+      "pos": [
+        -642.1095746568187,
+        1275.2036406236364
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader_ZIMG",
+        "aux_id": "pollockjj/ComfyUI-IsolationToolkit",
+        "ver": "c84ec377d2a73acc3873cf5b3ddcdcaf5d80aacd"
+      },
+      "widgets_values": [
+        "qwen_3_8b_fp8mixed.safetensors",
+        "lumina2",
+        "default"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 84,
+      "type": "MarkdownNote",
+      "pos": [
+        561.9523716308595,
+        1026.0364172790512
+      ],
+      "size": [
+        510,
+        680
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Code from custom node",
+      "properties": {},
+      "widgets_values": [
+        "## Code: String Concatenation\n\n### Custom Node (`nodes/nodes_string.py`)\n\n```python\nclass StringConcatenate_ISO(io.ComfyNode):\n    @classmethod\n    def define_schema(cls):\n        return io.Schema(\n            node_id='StringConcatenate_ISO',\n            display_name='Concatenate_ISO',\n            category='utils/string',\n            inputs=[\n                io.String.Input('string_a',\n                    multiline=True),\n                io.String.Input('string_b',\n                    multiline=True),\n                io.String.Input('delimiter',\n                    default=''),\n            ],\n            outputs=[io.String.Output()],\n        )\n\n    @classmethod\n    def execute(cls, string_a, string_b,\n                delimiter):\n        return io.NodeOutput(\n            delimiter.join((string_a, string_b))\n        )\n```\n\n### Transport Layer\n\nStrings need no special serializer. The `JSONSocketTransport` in `pyisolate/_internal/rpc_transports.py` handles Python strings natively as JSON string values.\n\n### Wire Format\n\n```json\n{\n    \"kind\": \"response\",\n    \"call_id\": 42,\n    \"result\": \"large letters on...\",\n    \"error\": null\n}\n```\n\nPlain JSON. No base64. No shared memory. No proxies.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 83,
+      "type": "MarkdownNote",
+      "pos": [
+        -1259.9163905578614,
+        1032.207800744627
+      ],
+      "size": [
+        510,
+        680
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Incremental changes described here",
+      "properties": {},
+      "widgets_values": [
+        "## Workflow 1: String Concatenation\n\n### What Changed\n\nThe `Concatenate_Isolated` node (StringConcatenate_ISO) is now **connected**. Its STRING output feeds into the host-side CLIPTextEncode node.\n\nThis is the simplest possible cross-boundary data transfer: a plain Python string.\n\n### What Crosses the Process Boundary\n\n**STRING** — a plain Python string value serialized as JSON.\n\nNo proxies needed. No shared memory. The string is serialized in the child process, sent over the JSON-RPC socket, and deserialized in the host. This is the baseline for all cross-process data transfer.\n\n### Data Flow\n\n```\nChild Process         Host Process\n─────────────────       ────────────────\nConcatenate_ISO       CLIPTextEncode\n  │ STRING                ▲\n  └─── JSON-RPC ───────┘\n```\n\n### Why This Matters\n\nStrings are the simplest type — no serializer registration needed. PyIsolate’s `JSONSocketTransport` handles them natively. This proves the basic IPC pipe works before introducing complex types.\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 35,
+      "type": "MarkdownNote",
+      "pos": [
+        -1232.6007001945015,
+        202.65113978968594
+      ],
+      "size": [
+        510,
+        600
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Process Isolation Example - Model link",
+      "properties": {},
+      "widgets_values": [
+        "## Let's try an example of native Process Isolation in ComfyUI.\n\nWe'll use a popular model, z_image_turbo, as our test. We use two different text encoders just to show a drop-in-and-isolated replacement but if you only have one of the two you can certainly use it for both nodes.\n\n## Model links\n\n**text_encoders**\n\n- [qwen_3_4b.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors)\n- [qwen_3_8b_fp8mixed.safetensors](https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors)\n\n**diffusion_models**\n\n- [z_image_turbo_bf16.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors)\n\n**vae**\n\n- [ae.safetensors](https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors)\n\n\nModel Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 text_encoders/\n│   │      └── qwen_3_4b.safetensors\n│   │      └── qwen_3_8b_fp8mixed.safetensors\n│   ├── 📂 diffusion_models/\n│   │      └── z_image_turbo_bf16.safetensors\n│   └── 📂 vae/\n│          └── ae.safetensors\n```\n\nAs we go through the workflows, we'll be replacing parts of the top workflow with isolated components so you can see how both the custom_node code is written and how the --use-process-isolation code written to make it all work.\n\nThe two other comment boxes will walk you through each step as you progress through the workflows"
+      ],
+      "color": "#432",
+      "bgcolor": "#000"
     }
   ],
   "links": [
@@ -1112,8 +1160,8 @@
       "id": 5,
       "title": "Isolated Nodes (From IsolationToolKit)",
       "bounding": [
-        -719.1316997008862,
-        1127.279015932551,
+        -689.8496997008863,
+        1003.9397367577446,
         1176.953777418335,
         689.4170921275024
       ],
@@ -1125,10 +1173,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6209213230591553,
+      "scale": 0.7513148009015779,
       "offset": [
-        1837.6846144100532,
-        235.10515209570687
+        1586.9838813611884,
+        -26.205628926967872
       ]
     },
     "frontendVersion": "1.42.8",
