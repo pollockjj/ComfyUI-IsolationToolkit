@@ -400,11 +400,17 @@ class SaveImage_ZIMG(io.ComfyNode):
             cls.hidden.prompt = prompt
             cls.hidden.extra_pnginfo = extra_pnginfo
 
+        import os
+        if os.environ.get("PYISOLATE_SANDBOX_MODE") == "required":
+            folder = io.FolderType.temp
+        else:
+            folder = io.FolderType.output
+
         saved = ui.SavedImages(
             ui.ImageSaveHelper.save_images(
                 images,
                 filename_prefix=filename_prefix,
-                folder_type=io.FolderType.temp,
+                folder_type=folder,
                 cls=cls,
             )
         )
