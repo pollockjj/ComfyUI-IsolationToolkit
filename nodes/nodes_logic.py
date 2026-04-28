@@ -58,7 +58,7 @@ class DCTestNode_ISO(io.ComfyNode):
         elif combo_val == 'option3':
             return io.NodeOutput(combo['image'])
         elif combo_val == 'option4':
-            return io.NodeOutput(f'{combo['subcombo']}')
+            return io.NodeOutput(f"{combo['subcombo']}")
         else:
             raise ValueError(f'Invalid combo: {combo_val}')
 

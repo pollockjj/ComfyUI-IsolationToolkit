@@ -758,7 +758,7 @@ class LoadTrainingDataset_ISO(io.ComfyNode):
                 shard_data = torch.load(f, weights_only=True)
             all_latents.extend(shard_data['latents'])
             all_conditioning.extend(shard_data['conditioning'])
-            logging.info(f'Loaded {shard_file}: {len(shard_data['latents'])} samples')
+            logging.info(f"Loaded {shard_file}: {len(shard_data['latents'])} samples")
         logging.info(f'Successfully loaded {len(all_latents)} samples from {dataset_dir}.')
         return io.NodeOutput(all_latents, all_conditioning)
 
